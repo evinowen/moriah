@@ -1,0 +1,5 @@
+<ItemPools>
+	<Pool Name="secret">
+		<Item Name="Lunchbox" Weight="1" DecreaseBy="0.1"/>
+	</Pool>
+</ItemPools>
