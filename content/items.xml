@@ -1,3 +1,4 @@
 <items gfxroot="gfx/items/" version="1">
   <active name="Lunchbox" description="Stay Fresh!™" gfx="lunchbox.png" maxcharges="8" />
+  <familiar name="Packed Lunchbox" gfx="packed_lunchbox.png" />
 </items>

@@ -1,23 +1,33 @@
-Moriah = RegisterMod("Moriah", 1512)
+Moriah = RegisterMod("Moriah", 1)
 
-local mod = Moriah
 local initalized = false
 
 local lunchboxes = {}
+local lunchbox_total = {}
 
 local lunchbox_held = {}
 local lunchbox_filled = {}
 
 local lunchbox_id = Isaac.GetItemIdByName("Lunchbox")
+local packed_lunchbox_id = Isaac.GetItemIdByName("Packed Lunchbox")
+local packed_lunchbox_entity_id = Isaac.GetEntityVariantByName("Packed Lunchbox")
+
+function Moriah:print(message)
+  Isaac.ConsoleOutput("[Moriah] "..message.."\n")
+end
 
 function Moriah:initalize()
-  Moriah:create_lunchboxes()
-  initalized = true
+  if not initalized then
+    Moriah:create_lunchboxes()
+    initalized = true
+    Moriah:print("Initalize")
+  end
 end
 
 function Moriah:create_lunchboxes()
   for i = 0, Game():GetNumPlayers() - 1 do
     lunchboxes[i] = {}
+    lunchbox_total[i] = 0
   end
 
   Moriah:reset_lunchboxes()
@@ -31,15 +41,14 @@ function Moriah:reset_lunchboxes()
 end
 
 function Moriah:use_lunchbox(ItemId, ItemRng, Player, UseFlags, ActiveSlot, CustomVarData)
-  if not initalized then
-    Moriah:initalize()
-  end
+  Moriah:initalize()
 
   if lunchbox_held[Player.ControllerIndex] then
     lunchbox_held[Player.ControllerIndex] = false
 
     if lunchbox_filled[Player.ControllerIndex] then
       lunchbox_filled[Player.ControllerIndex] = false
+      Player:AddCollectible(packed_lunchbox_id)
       return {
         Discharge = false,
         Remove = false,
@@ -60,20 +69,9 @@ function Moriah:use_lunchbox(ItemId, ItemRng, Player, UseFlags, ActiveSlot, Cust
   }
 end
 
-function Moriah:update_lunchbox()
-  for i = 0, Game():GetNumPlayers() - 1 do
-    local player = Isaac.GetPlayer(i)
-
-    if player:HasCollectible(lunchbox_id) then
-      if lunchbox_held[i] then
-        player:CanShoot(false)
-      end
-    end
-  end
-end
-
-
 function Moriah:fill_lunchbox(pickup, collider, low)
+  Moriah:initalize()
+
   local player = collider:ToPlayer()
 
   if not(player) then
@@ -86,7 +84,15 @@ function Moriah:fill_lunchbox(pickup, collider, low)
     pickup:PlayPickupSound()
 
     Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.POOF01, 0, pickup.Position, Vector.Zero, nil)
+
     lunchbox_filled[player.ControllerIndex] = true
+    lunchbox_total[player.ControllerIndex] = lunchbox_total[player.ControllerIndex] + 1
+
+    table.insert(lunchboxes[player.ControllerIndex], {
+      Variant = pickup.Variant,
+      SubType = pickup.Variant,
+      Charge = pickup.Charge
+    })
 
     player:UseActiveItem(lunchbox_id)
     player:RemoveCollectible(lunchbox_id)
@@ -97,7 +103,24 @@ function Moriah:fill_lunchbox(pickup, collider, low)
   end
 end
 
+function Moriah:evaluate_cache(player)
+  Moriah:initalize()
+
+  Moriah:print("CheckFamiliar "..player.ControllerIndex.." "..lunchbox_total[player.ControllerIndex])
+  player:CheckFamiliar(packed_lunchbox_entity_id, lunchbox_total[player.ControllerIndex], RNG())
+end
+
+function Moriah:create_packed_lunchbox(familiar)
+  familiar.IsFollower = true
+end
+
+function Moriah:follow_packed_lunchbox(familiar)
+  familiar:FollowParent()
+end
+
 Moriah:AddCallback(ModCallbacks.MC_USE_ITEM, Moriah.use_lunchbox, lunchbox_id)
-Moriah:AddCallback(ModCallbacks.MC_POST_UPDATE, Moriah.update_lunchbox)
 Moriah:AddCallback(ModCallbacks.MC_POST_NEW_ROOM, Moriah.reset_lunchboxes)
 Moriah:AddCallback(ModCallbacks.MC_PRE_PICKUP_COLLISION, Moriah.fill_lunchbox)
+Moriah:AddCallback(ModCallbacks.MC_EVALUATE_CACHE, Moriah.evaluate_cache, CacheFlag.CACHE_FAMILIARS)
+Moriah:AddCallback(ModCallbacks.MC_FAMILIAR_INIT, Moriah.create_packed_lunchbox, packed_lunchbox_entity_id)
+Moriah:AddCallback(ModCallbacks.MC_FAMILIAR_UPDATE, Moriah.follow_packed_lunchbox, packed_lunchbox_entity_id)
