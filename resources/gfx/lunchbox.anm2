@@ -1,7 +1,7 @@
 <AnimatedActor>
 	<Content>
 		<Spritesheets>
-			<Spritesheet Path="items\collectibles\packed_lunchbox.png" Id="0"/>
+			<Spritesheet Path="\familiar\packed_lunchbox.png" Id="0"/>
 		</Spritesheets>
 		<Layers>
 			<Layer Name="body" Id="0" SpritesheetId="0"/>
