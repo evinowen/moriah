@@ -2,14 +2,6 @@ local json = require("json")
 
 Moriah = RegisterMod("Moriah", 1)
 
-Moriah.Data = {
-  initalized = false,
-  lunchboxes = {},
-  lunchbox_total = {},
-  lunchbox_held = {},
-  lunchbox_filled = {},
-}
-
 local lunchbox_id = Isaac.GetItemIdByName("Lunchbox")
 local packed_lunchbox_id = Isaac.GetItemIdByName("Packed Lunchbox")
 local packed_lunchbox_entity_id = Isaac.GetEntityVariantByName("Packed Lunchbox")
@@ -22,19 +14,28 @@ function Moriah:tag(number)
   return "player"..number
 end
 
-function Moriah:initalize(continue)
-	if continue and Moriah:HasData() then
+function Moriah:start(continue)
+  if continue and Moriah:HasData() then
     Moriah:print("Load")
     local encoded = Moriah:LoadData()
     Moriah:print("Data: "..encoded)
-		Moriah.Data = json.decode(encoded)
+    Moriah.Data = json.decode(encoded)
+  else
+    Moriah:print("Initalize")
+    Moriah.Data = {
+      initalized = false,
+      lunchboxes = {},
+      lunchbox_total = {},
+      lunchbox_held = {},
+      lunchbox_filled = {},
+      lunchbox_opened = {},
+      lunchbox_release = {}
+    }
+    Moriah:create_lunchboxes()
+    Moriah:record()
   end
 
-  if not Moriah.Data.initalized then
-    Moriah:print("Initalize")
-    Moriah:create_lunchboxes()
-    Moriah.Data.initalized = true
-  end
+  Moriah.Data.initalized = true
 end
 
 function Moriah:record()
@@ -47,6 +48,7 @@ function Moriah:create_lunchboxes()
     local player = Game():GetPlayer(i)
     Moriah.Data.lunchboxes[Moriah:tag(player.ControllerIndex)] = {}
     Moriah.Data.lunchbox_total[Moriah:tag(player.ControllerIndex)] = 0
+    Moriah.Data.lunchbox_release[Moriah:tag(player.ControllerIndex)] = 0
   end
 
   Moriah:reset_lunchboxes()
@@ -58,6 +60,7 @@ function Moriah:reset_lunchboxes()
     local player = Game():GetPlayer(i)
     Moriah.Data.lunchbox_held[Moriah:tag(player.ControllerIndex)] = false
     Moriah.Data.lunchbox_filled[Moriah:tag(player.ControllerIndex)] = false
+    Moriah.Data.lunchbox_opened[Moriah:tag(player.ControllerIndex)] = false
   end
 end
 
@@ -67,9 +70,11 @@ function Moriah:use_lunchbox(item_id, _, player, _, _, _)
 
     if Moriah.Data.lunchbox_filled[Moriah:tag(player.ControllerIndex)] then
       Moriah.Data.lunchbox_filled[Moriah:tag(player.ControllerIndex)] = false
+
       player:AddCollectible(packed_lunchbox_id)
 
       Moriah:record()
+
       return {
         Discharge = false,
         Remove = false,
@@ -114,7 +119,7 @@ function Moriah:fill_lunchbox(pickup, collider, _)
 
     table.insert(Moriah.Data.lunchboxes[Moriah:tag(player.ControllerIndex)], {
       Variant = pickup.Variant,
-      SubType = pickup.Variant,
+      SubType = pickup.SubType,
       Charge = pickup.Charge
     })
 
@@ -143,12 +148,56 @@ end
 
 function Moriah:follow_packed_lunchbox(familiar)
   familiar:FollowParent()
+
+  local player = familiar.Player
+
+  if Moriah.Data.lunchbox_opened[Moriah:tag(player.ControllerIndex)] then
+    Moriah.Data.lunchbox_opened[Moriah:tag(player.ControllerIndex)] = false
+
+    Moriah:print("lunchboxes? "..json.encode(Moriah.Data.lunchboxes[Moriah:tag(player.ControllerIndex)]))
+    local lunchbox = Moriah.Data.lunchboxes[Moriah:tag(player.ControllerIndex)][1]
+    Moriah:print("lunchbox! "..json.encode(lunchbox))
+
+    table.remove(Moriah.Data.lunchboxes[Moriah:tag(player.ControllerIndex)], 1)
+    Moriah.Data.lunchbox_total[Moriah:tag(player.ControllerIndex)] = Moriah.Data.lunchbox_total[Moriah:tag(player.ControllerIndex)] - 1
+
+    local position = familiar.Position
+
+    player:RemoveCollectible(packed_lunchbox_id)
+    player:EvaluateItems()
+
+    Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.POOF01, 0, position, Vector.Zero, nil)
+    local pickup = Isaac.Spawn(EntityType.ENTITY_PICKUP, lunchbox.Variant, lunchbox.SubType, position, Vector.Zero, nil)
+    -- pickup.Charge = lunchbox.Charge
+
+    Moriah:record()
+  end
 end
 
-Moriah:AddCallback(ModCallbacks.MC_POST_GAME_STARTED, Moriah.initalize)
+function Moriah:render()
+	for i=0, Game():GetNumPlayers() do
+		local player = Game():GetPlayer(i)
+
+    if Moriah.Data.lunchbox_total[Moriah:tag(player.ControllerIndex)] > 0 then
+      if Input.IsActionPressed(ButtonAction.ACTION_DROP, player.ControllerIndex) then
+        Moriah.Data.lunchbox_release[Moriah:tag(player.ControllerIndex)] = Moriah.Data.lunchbox_release[Moriah:tag(player.ControllerIndex)] + 1
+
+        if Moriah.Data.lunchbox_release[Moriah:tag(player.ControllerIndex)] >= 100 then
+          Moriah.Data.lunchbox_release[Moriah:tag(player.ControllerIndex)] = 0
+          Moriah.Data.lunchbox_opened[Moriah:tag(player.ControllerIndex)] = true
+        end
+      else
+        Moriah.Data.lunchbox_release[Moriah:tag(player.ControllerIndex)] = 0
+      end
+    end
+  end
+end
+
+Moriah:AddCallback(ModCallbacks.MC_POST_GAME_STARTED, Moriah.start)
 Moriah:AddCallback(ModCallbacks.MC_USE_ITEM, Moriah.use_lunchbox, lunchbox_id)
 Moriah:AddCallback(ModCallbacks.MC_POST_NEW_ROOM, Moriah.reset_lunchboxes)
 Moriah:AddCallback(ModCallbacks.MC_PRE_PICKUP_COLLISION, Moriah.fill_lunchbox)
 Moriah:AddCallback(ModCallbacks.MC_EVALUATE_CACHE, Moriah.evaluate_cache, CacheFlag.CACHE_FAMILIARS)
 Moriah:AddCallback(ModCallbacks.MC_FAMILIAR_INIT, Moriah.create_packed_lunchbox, packed_lunchbox_entity_id)
 Moriah:AddCallback(ModCallbacks.MC_FAMILIAR_UPDATE, Moriah.follow_packed_lunchbox, packed_lunchbox_entity_id)
+Moriah:AddCallback(ModCallbacks.MC_POST_RENDER, Moriah.render)
