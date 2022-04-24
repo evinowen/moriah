@@ -147,10 +147,6 @@ function Moriah:fill_lunchbox(pickup, collider, _)
     Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.POOF01, 0, pickup.Position, Vector.Zero, nil)
 
     Moriah.Data.lunchbox_filled[Moriah:tag(player.ControllerIndex)] = true
-
-    Moriah:print("test1 "..Moriah:tag(player.ControllerIndex))
-    Moriah:print("test2 "..json.encode(Moriah.Data.lunchbox_total))
-    Moriah:print("test3 "..Moriah.Data.lunchbox_total[Moriah:tag(player.ControllerIndex)])
     Moriah.Data.lunchbox_total[Moriah:tag(player.ControllerIndex)] = Moriah.Data.lunchbox_total[Moriah:tag(player.ControllerIndex)] + 1
 
     table.insert(Moriah.Data.lunchboxes[Moriah:tag(player.ControllerIndex)], {
@@ -174,7 +170,6 @@ function Moriah:evaluate_cache(player)
     return
   end
 
-  Moriah:print("CheckFamiliar "..Moriah:tag(player.ControllerIndex).." "..Moriah.Data.lunchbox_total[Moriah:tag(player.ControllerIndex)])
   player:CheckFamiliar(packed_lunchbox_entity_id, Moriah.Data.lunchbox_total[Moriah:tag(player.ControllerIndex)], RNG())
 end
 
@@ -190,9 +185,7 @@ function Moriah:follow_packed_lunchbox(familiar)
   if Moriah.Data.lunchbox_opened[Moriah:tag(player.ControllerIndex)] then
     Moriah.Data.lunchbox_opened[Moriah:tag(player.ControllerIndex)] = false
 
-    Moriah:print("lunchboxes? "..json.encode(Moriah.Data.lunchboxes[Moriah:tag(player.ControllerIndex)]))
     local lunchbox = Moriah.Data.lunchboxes[Moriah:tag(player.ControllerIndex)][1]
-    Moriah:print("lunchbox! "..json.encode(lunchbox))
 
     table.remove(Moriah.Data.lunchboxes[Moriah:tag(player.ControllerIndex)], 1)
     Moriah.Data.lunchbox_total[Moriah:tag(player.ControllerIndex)] = Moriah.Data.lunchbox_total[Moriah:tag(player.ControllerIndex)] - 1
