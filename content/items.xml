@@ -1,4 +1,14 @@
 <items gfxroot="gfx/items/" version="1">
+  <!-- Lunchbox -->
   <active name="Lunchbox" description="Stay Fresh!™" gfx="lunchbox.png" maxcharges="8" />
   <familiar name="Packed Lunchbox" gfx="packed_lunchbox.png" />
+
+  <!-- Eggs -->
+  <active name="Eggs"       description="6-Pack!" gfx="eggs.png"  chargetype="timed" maxcharges="90" />
+  <active name="Eggs (5)"   description="5-Pack!" gfx="eggs5.png" chargetype="timed" maxcharges="90" />
+  <active name="Eggs (4)"   description="4-Pack!" gfx="eggs4.png" chargetype="timed" maxcharges="90" />
+  <active name="Eggs (3)"   description="3-Pack!" gfx="eggs3.png" chargetype="timed" maxcharges="90" />
+  <active name="Eggs (2)"   description="2-Pack!" gfx="eggs2.png" chargetype="timed" maxcharges="90" />
+  <active name="Eggs (1)"   description="1-Pack!" gfx="eggs1.png" chargetype="timed" maxcharges="90" />
+  <active name="Egg Carton" description="0-Pack!" gfx="eggs0.png" chargetype="timed" maxcharges="90" />
 </items>
