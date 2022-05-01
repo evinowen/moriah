@@ -1,4 +1,7 @@
 <items gfxroot="gfx/items/" version="1">
+  <!-- Fishbowl -->
+  <passive id="1" name="Fishbowl" description="blub blub blub" gfx="fishbowl.png" cache="flying" />
+
   <!-- Lunchbox -->
   <active name="Lunchbox" description="Stay Fresh!™" gfx="lunchbox.png" maxcharges="8" />
   <familiar name="Packed Lunchbox" gfx="packed_lunchbox.png" />

@@ -5,6 +5,7 @@ Moriah = RegisterMod("Moriah", 1)
 local support = require "support"
 
 local items = {
+  fishbowl  = require "fishbowl",
   lunchbox  = require "lunchbox",
   eggs      = require "eggs",
 }
