@@ -15,6 +15,9 @@
   <active name="Eggs (1)"   description="1-Pack!" gfx="eggs1.png" chargetype="timed" maxcharges="90" />
   <active name="Egg Carton" description="0-Pack!" gfx="eggs0.png" chargetype="timed" maxcharges="90" />
 
+  <!-- Helium -->
+  <active name="Helium" description="I be a wee little Leprechaun!" gfx="helium.png" chargetype="timed" maxcharges="360" />
+
   <!-- Whistle -->
   <active name="Whistle" description="Rock you like a Whirlwind" gfx="whistle.png" maxcharges="3" />
 
