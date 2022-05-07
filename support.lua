@@ -1,4 +1,14 @@
-local support = {}
+local support = {
+  PoopSubType = {
+    REGULAR = 0,
+    BLOOD   = 1,
+    CORNY   = 2,
+    GOLDEN  = 3,
+    RAINBOW = 4,
+    BLACK   = 5,
+    HOLY    = 6,
+  }
+}
 
 function support.print(message)
   local parameter_type = type(message)
@@ -25,6 +35,16 @@ end
 
 function support.tag(player)
   return "p."..player.ControllerIndex
+end
+
+function support.random_seed()
+  local seed = Random()
+
+  if seed <= 0 then
+    return 1
+  end
+
+  return seed
 end
 
 support.print("Loaded moriah.support")
