@@ -1,13 +1,13 @@
-local json = require("json")
-
 Moriah = RegisterMod("Moriah", 1)
 
+local json = require("json")
 local support = require "support"
 
 local items = {
   fishbowl  = require "fishbowl",
   lunchbox  = require "lunchbox",
   eggs      = require "eggs",
+  whistle   = require "whistle",
 }
 
 function Moriah:Validate()

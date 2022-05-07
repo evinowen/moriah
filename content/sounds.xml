@@ -1,0 +1,8 @@
+<sounds root="sfx/">
+	<sound name="Whistle">
+		<sample weight="1" path="whistle.wav" />
+	</sound>
+	<sound name="Whistle Secret">
+		<sample weight="1" path="whistle.secret.wav" />
+	</sound>
+</sounds>
