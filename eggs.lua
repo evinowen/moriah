@@ -32,7 +32,11 @@ function eggs.reset_player(data, player)
   data.eggs_held[tag] = -1
 end
 
-function eggs.use_item(data, item_id, player)
+function eggs.use_item(data, item_id, _, player)
+  if not support.contains(eggs.id_table, item_id) then
+    return
+  end
+
   local tag = support.tag(player)
 
   if data.eggs_held[tag] < 0 then

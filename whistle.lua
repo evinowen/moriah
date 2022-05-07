@@ -34,7 +34,11 @@ function reveal_dungeon()
   return true
 end
 
-function whistle.use_item(data, item_id, player)
+function whistle.use_item(data, item_id, _, player)
+  if item_id ~= whistle_id then
+    return
+  end
+
   SFXManager():Play(whistle_sound_id)
   repeat until not SFXManager():IsPlaying(whistle_sound_id)
 

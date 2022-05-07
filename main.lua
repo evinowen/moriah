@@ -4,44 +4,15 @@ local json = require("json")
 local support = require "support"
 
 local items = {
+  eggs      = require "eggs",
   fishbowl  = require "fishbowl",
   lunchbox  = require "lunchbox",
-  eggs      = require "eggs",
   whistle   = require "whistle",
 }
 
 function Moriah:Validate()
   if not (Moriah.Data and Moriah.Data.initalized) then
     Moriah:start(true)
-  end
-end
-
-function Moriah:start(continue)
-  support.print("start")
-  Moriah:stage()
-
-  if continue and Moriah:HasData() then
-    support.print("Continue Game")
-
-    local encoded = Moriah:LoadData()
-    support.print("Load Results: "..encoded)
-    support.merge(Moriah.Data, json.decode(encoded))
-  else
-    support.print("New Game")
-
-    Moriah:initalize()
-
-    support.print("Initalized: "..json.encode(Moriah.Data))
-
-    Moriah:record()
-  end
-
-  local player_count = Game():GetNumPlayers()
-
-  for i = 0, player_count - 1 do
-    local player = Game():GetPlayer(i)
-    player:AddCacheFlags(CacheFlag.CACHE_ALL)
-    player:EvaluateItems()
   end
 end
 
@@ -76,6 +47,47 @@ function Moriah:initalize()
   Moriah.Data.initalized = true
 end
 
+function Moriah:record()
+  Moriah:SaveData(json.encode(Moriah.Data))
+end
+
+function Moriah:remix_arguments(arguments)
+  table.remove(arguments, 1)
+  table.insert(arguments, 1, Moriah.Data)
+  return arguments
+end
+
+function Moriah:start(continue)
+  support.print("Start")
+  Moriah:stage()
+
+  if continue and Moriah:HasData() then
+    support.print("Continue Game")
+
+    local encoded = Moriah:LoadData()
+    support.print("Load Results: "..encoded)
+    support.merge(Moriah.Data, json.decode(encoded))
+  else
+    support.print("New Game")
+
+    Moriah:initalize()
+
+    support.print("Initalized: "..json.encode(Moriah.Data))
+
+    Moriah:record()
+  end
+
+  local player_count = Game():GetNumPlayers()
+
+  for i = 0, player_count - 1 do
+    local player = Game():GetPlayer(i)
+    player:AddCacheFlags(CacheFlag.CACHE_ALL)
+    player:EvaluateItems()
+  end
+end
+
+Moriah:AddCallback(ModCallbacks.MC_POST_GAME_STARTED, Moriah.start)
+
 function Moriah:reset()
   local player_count = Game():GetNumPlayers()
   local players = {}
@@ -92,83 +104,7 @@ function Moriah:reset()
   end
 end
 
-function Moriah:record()
-  Moriah:SaveData(json.encode(Moriah.Data))
-end
-
-function Moriah:use_item(item_id, _, player, _, _, _)
-  Moriah:Validate()
-
-  for _, item in pairs(items) do
-    if support.contains(item.id_table, item_id) then
-      if item.use_item ~= nil then
-        support.print("Use Item "..item_id)
-        local tag = support.tag(player)
-        support.print("Use Tag "..tag)
-        return item.use_item(Moriah.Data, item_id, player)
-      end
-      return
-    end
-  end
-
-  Moriah:record()
-end
-
-function Moriah:pre_pickup_collision(pickup, collider)
-  Moriah:Validate()
-
-  local result = nil
-
-  for _, item in pairs(items) do
-    if item.pre_pickup_collision then
-      local local_result = item.pre_pickup_collision(Moriah.Data, pickup, collider)
-
-      if local_result ~= nil then
-        result = local_result
-      end
-    end
-  end
-
-  Moriah:record()
-  return result
-end
-
-function Moriah:evaluate_cache(player, flag)
-  Moriah:Validate()
-
-  support.print("evaluate_cache "..flag)
-  for _, item in pairs(items) do
-    if item.evaluate_cache then
-      item.evaluate_cache(Moriah.Data, player, flag)
-    end
-  end
-
-  Moriah:record()
-end
-
-function Moriah:familiar_init(player, flag)
-  Moriah:Validate()
-
-  for _, item in pairs(items) do
-    if item.familiar_init then
-      item.familiar_init(Moriah.Data, player, flag)
-    end
-  end
-
-  Moriah:record()
-end
-
-function Moriah:familiar_update(player, flag)
-  Moriah:Validate()
-
-  for _, item in pairs(items) do
-    if item.familiar_update then
-      item.familiar_update(Moriah.Data, player, flag)
-    end
-  end
-
-  Moriah:record()
-end
+Moriah:AddCallback(ModCallbacks.MC_POST_NEW_ROOM, Moriah.reset)
 
 function Moriah:render()
   Moriah:Validate()
@@ -194,46 +130,80 @@ function Moriah:render()
   Moriah:record()
 end
 
-function Moriah:fire(tear)
-  Moriah:Validate()
+Moriah:AddCallback(ModCallbacks.MC_POST_RENDER, Moriah.render)
 
-  for _, item in pairs(items) do
-    if item.fire then
-      item.fire(Moriah.Data, tear)
-    end
-  end
+local methods = {
+  {
+    flag = ModCallbacks.MC_USE_ITEM,
+    name = "use_item",
+  },
+  {
+    flag = ModCallbacks.MC_EVALUATE_CACHE,
+    name = "evaluate_cache",
+  },
+  {
+    flag = ModCallbacks.MC_POST_FIRE_TEAR,
+    name = "fire",
+  },
+  {
+    flag = ModCallbacks.MC_FAMILIAR_INIT,
+    name = "familiar_init",
+  },
+  {
+    flag = ModCallbacks.MC_FAMILIAR_UPDATE,
+    name = "familiar_update",
+  },
+  {
+    flag = ModCallbacks.MC_ENTITY_TAKE_DMG,
+    name = "entity_take_damage",
+  },
+  {
+    flag = ModCallbacks.MC_PRE_FAMILIAR_COLLISION,
+    name = "pre_familiar_collision",
+  },
+  {
+    flag = ModCallbacks.MC_PRE_PICKUP_COLLISION,
+    name = "pre_pickup_collision",
+  },
+  {
+    flag = ModCallbacks.MC_PRE_PROJECTILE_COLLISION,
+    name = "pre_projectile_collision",
+  },
+  {
+    flag = ModCallbacks.MC_PRE_PLAYER_COLLISION,
+    name = "pre_player_collision",
+  },
+  {
+    flag = ModCallbacks.MC_PRE_TEAR_COLLISION,
+    name = "pre_tear_collision",
+  },
+}
 
-  Moriah:record()
-end
+function Moriah:callback_template(name)
+  return function(...)
+    local arguments = Moriah:remix_arguments({...})
 
-function Moriah:pre_projectile_collision(projectile, collider)
-  Moriah:Validate()
+    Moriah:Validate()
 
-  local result = nil
+    local result = nil
+    for _, item in pairs(items) do
+      if item[name] then
+        local local_result = item[name](table.unpack(arguments))
 
-  for _, item in pairs(items) do
-    if item.pre_projectile_collision then
-      local local_result = item.pre_projectile_collision(Moriah.Data, projectile, collider)
-
-      if local_result ~= nil then
-        result = local_result
+        if local_result ~= nil then
+          result = local_result
+        end
       end
     end
-  end
 
-  Moriah:record()
-  return result
+    Moriah:record()
+    return result
+  end
 end
 
-Moriah:AddCallback(ModCallbacks.MC_EVALUATE_CACHE, Moriah.evaluate_cache)
-Moriah:AddCallback(ModCallbacks.MC_POST_FIRE_TEAR, Moriah.fire)
-Moriah:AddCallback(ModCallbacks.MC_POST_GAME_STARTED, Moriah.start)
-Moriah:AddCallback(ModCallbacks.MC_POST_NEW_ROOM, Moriah.reset)
-Moriah:AddCallback(ModCallbacks.MC_POST_RENDER, Moriah.render)
-Moriah:AddCallback(ModCallbacks.MC_PRE_PICKUP_COLLISION, Moriah.pre_pickup_collision)
-Moriah:AddCallback(ModCallbacks.MC_PRE_PROJECTILE_COLLISION, Moriah.pre_projectile_collision)
-Moriah:AddCallback(ModCallbacks.MC_FAMILIAR_INIT, Moriah.familiar_init)
-Moriah:AddCallback(ModCallbacks.MC_FAMILIAR_UPDATE, Moriah.familiar_update)
-Moriah:AddCallback(ModCallbacks.MC_USE_ITEM, Moriah.use_item)
+for _, method in ipairs(methods) do
+  support.print("AddCallback "..method.name)
+  Moriah:AddCallback(method.flag, Moriah:callback_template(method.name))
+end
 
 support.print("Loaded moriah")

@@ -4,9 +4,7 @@ local lunchbox_id = Isaac.GetItemIdByName("Lunchbox")
 local packed_lunchbox_id = Isaac.GetItemIdByName("Packed Lunchbox")
 local packed_lunchbox_entity_id = Isaac.GetEntityVariantByName("Packed Lunchbox")
 
-local lunchbox = {
-  id_table = { lunchbox_id }
-}
+local lunchbox = {}
 
 function lunchbox.stage(data)
   support.print("lunchbox stage")
@@ -36,7 +34,11 @@ function lunchbox.reset_player(data, player)
   data.lunchbox_opened[tag] = false
 end
 
-function lunchbox.use_item(data, item_id, player)
+function lunchbox.use_item(data, item_id, _, player)
+  if item_id ~= lunchbox_id then
+    return
+  end
+
   local tag = support.tag(player)
 
   if data.lunchbox_held[tag] then
@@ -129,10 +131,18 @@ function lunchbox.evaluate_cache(data, player, flag)
 end
 
 function lunchbox.familiar_init(data, familiar)
+  if familiar.Variant ~= packed_lunchbox_entity_id then
+    return
+  end
+
   familiar.IsFollower = true
 end
 
 function lunchbox.familiar_update(data, familiar)
+  if familiar.Variant ~= packed_lunchbox_entity_id then
+    return
+  end
+
   familiar:FollowParent()
 
   local player = familiar.Player
@@ -149,6 +159,7 @@ function lunchbox.familiar_update(data, familiar)
     local position = familiar.Position
 
     player:RemoveCollectible(packed_lunchbox_id)
+    player:AddCacheFlags(CacheFlag.CACHE_FAMILIARS)
     player:EvaluateItems()
 
     Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.POOF01, 0, position, Vector.Zero, nil)
