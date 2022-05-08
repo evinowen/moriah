@@ -24,6 +24,9 @@
   <!-- Whistle -->
   <active name="Whistle" description="Rock you like a Whirlwind" gfx="whistle.png" maxcharges="3" />
 
+  <!-- Tissues -->
+  <trinket name="Tissues" description="Dry your tears" gfx="tissues.png"  />
+
   <!-- Coffee Bean -->
   <passive name="Coffee Bean" description="lightly roasted" gfx="coffee_bean.png" cache="speed" tags="poop" />
 

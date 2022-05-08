@@ -11,6 +11,7 @@ local items = {
   helium      = require("helium"),
   lunchbox    = require("lunchbox"),
   plant       = require("plant"),
+  tissues     = require("tissues"),
   whistle     = require("whistle"),
 }
 
