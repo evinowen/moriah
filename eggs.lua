@@ -1,4 +1,4 @@
-local support = require "support"
+local support = require("support")
 
 local egg_tear_id = Isaac.GetEntityVariantByName("Chicken Egg Tear")
 

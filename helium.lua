@@ -1,4 +1,4 @@
-local support = require "support"
+local support = require("support")
 
 local helium_id = Isaac.GetItemIdByName("Helium")
 local balloon_id = Isaac.GetEntityVariantByName("Helium Balloon")

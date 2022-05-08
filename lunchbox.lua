@@ -1,4 +1,4 @@
-local support = require "support"
+local support = require("support")
 
 local lunchbox_id = Isaac.GetItemIdByName("Lunchbox")
 local packed_lunchbox_id = Isaac.GetItemIdByName("Packed Lunchbox")

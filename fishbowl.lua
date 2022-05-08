@@ -1,4 +1,4 @@
-local support = require "support"
+local support = require("support")
 
 local fishbowl_id = Isaac.GetItemIdByName("Fishbowl")
 
