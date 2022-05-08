@@ -27,6 +27,9 @@
   <!-- Tissues -->
   <trinket name="Tissues" description="Dry your tears" gfx="tissues.png"  />
 
+  <!-- Hymnal -->
+  <active name="Hymnal" description="Bored again Christian" gfx="Hymnal.png" maxcharges="6" tags="book" />
+
   <!-- Coffee Bean -->
   <passive name="Coffee Bean" description="lightly roasted" gfx="coffee_bean.png" cache="speed" tags="poop" />
 

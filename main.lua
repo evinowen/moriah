@@ -9,6 +9,7 @@ local items = {
   eggs        = require("eggs"),
   fishbowl    = require("fishbowl"),
   helium      = require("helium"),
+  hymnal      = require("hymnal"),
   lunchbox    = require("lunchbox"),
   plant       = require("plant"),
   tissues     = require("tissues"),
@@ -149,6 +150,10 @@ local methods = {
   {
     flag = ModCallbacks.MC_POST_FIRE_TEAR,
     name = "fire",
+  },
+  {
+    flag = ModCallbacks.MC_POST_PEFFECT_UPDATE,
+    name = "post_perfect_update",
   },
   {
     flag = ModCallbacks.MC_FAMILIAR_INIT,
