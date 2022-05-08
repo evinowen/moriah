@@ -4,6 +4,7 @@ local json = require("json")
 local support = require("support")
 
 local items = {
+  bowtie      = require("bowtie"),
   coffee_bean = require("coffee_bean"),
   eggs        = require("eggs"),
   fishbowl    = require("fishbowl"),

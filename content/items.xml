@@ -26,4 +26,7 @@
 
   <!-- Coffee Bean -->
   <passive name="Coffee Bean" description="lightly roasted" gfx="coffee_bean.png" cache="speed" tags="poop" />
+
+  <!-- Bow Tie -->
+  <passive name="Bow Tie" description="HP up + you feel charming" gfx="bowtie.png" hearts="2" maxhearts="2" />
 </items>
