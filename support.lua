@@ -47,5 +47,24 @@ function support.random_seed()
   return seed
 end
 
+function support.create_random_generator()
+  local shift_index = 35
+  local seed = Random()
+  if seed < 1 then
+    seed = 1
+  end
+
+  local rng = RNG()
+  rng:SetSeed(seed, shift_index)
+
+  return rng
+end
+
+function support.check_familiar(player, familiar_variant_id, familiar_count, source_collectible_id)
+  local item_config = Isaac.GetItemConfig():GetCollectible(source_collectible_id)
+
+  player:CheckFamiliar(familiar_variant_id, familiar_count, support.create_random_generator(), item_config)
+end
+
 support.print("Loaded moriah.support")
 return support

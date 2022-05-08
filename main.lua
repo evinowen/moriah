@@ -9,6 +9,7 @@ local items = {
   fishbowl    = require("fishbowl"),
   helium      = require("helium"),
   lunchbox    = require("lunchbox"),
+  plant       = require("plant"),
   whistle     = require("whistle"),
 }
 
