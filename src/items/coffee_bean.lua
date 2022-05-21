@@ -25,8 +25,8 @@ function coffee_bean.entity_take_damage(data, damaged)
     local index = room:GetGridIndex(player.Position)
     local type = support.PoopSubType.REGULAR
 
-    if Random() % 10 <= 5 then
-      local type = support.PoopSubType.CORNY
+    if Random() % 10 <= 1 then
+      type = support.PoopSubType.CORNY
     end
 
     room:SpawnGridEntity(index, GridEntityType.GRID_POOP, type, support.random_seed(), 0)
