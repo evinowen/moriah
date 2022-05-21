@@ -4,8 +4,19 @@ local whistle_sound_id = Isaac.GetSoundIdByName("Whistle")
 local whistle_secret_sound_id = Isaac.GetSoundIdByName("Whistle Secret")
 
 local whistle = {
-  id_table = { whistle_id }
+  id_table = { whistle_id },
+  tune_delay = 100,
 }
+
+function whistle.stage(data)
+  data.whistle = {}
+end
+
+function whistle.reset_player(data, player)
+  local tag = support.tag(player)
+
+  data.whistle[tag] = 0
+end
 
 function reveal_dungeon()
   local room = Game():GetRoom()
@@ -39,8 +50,32 @@ function whistle.use_item(data, item_id, _, player)
     return
   end
 
+  local tag = support.tag(player)
+
+  if data.whistle[tag] > 0 then
+    return
+  end
+
   SFXManager():Play(whistle_sound_id)
-  repeat until not SFXManager():IsPlaying(whistle_sound_id)
+  player:AnimateCollectible(whistle_id, "LiftItem", "PlayerPickup")
+
+  data.whistle[tag] = whistle.tune_delay
+end
+
+function whistle.post_perfect_update(data, player)
+  local tag = support.tag(player)
+
+  if data.whistle[tag] <= 0 then
+    return
+  end
+
+  data.whistle[tag] = data.whistle[tag] - 1
+
+  if data.whistle[tag] > 0 then
+    return
+  end
+
+  player:AnimateCollectible(whistle_id, "HideItem", "PlayerPickup")
 
   if reveal_dungeon() then
     return
