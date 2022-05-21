@@ -1,5 +1,3 @@
-local support = require("support")
-
 local hymnal_id = Isaac.GetItemIdByName("Hymnal")
 
 local hymnal = {}
@@ -55,6 +53,3 @@ function hymnal.post_perfect_update(data, player)
     end
   end
 end
-
-
-return hymnal

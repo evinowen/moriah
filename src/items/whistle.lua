@@ -90,5 +90,3 @@ function whistle.pre_projectile_collision(data, projectile, collider)
   Game():MoveToRandomRoom(false, Random(), player)
   return true
 end
-
-return whistle

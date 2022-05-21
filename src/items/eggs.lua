@@ -1,5 +1,3 @@
-local support = require("support")
-
 local egg_tear_id = Isaac.GetEntityVariantByName("Chicken Egg Tear")
 
 local eggs_id = Isaac.GetItemIdByName("Eggs")
@@ -147,4 +145,3 @@ function eggs.render_player(data, player)
 end
 
 support.print("Loaded moriah.eggs")
-return eggs

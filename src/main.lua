@@ -1,19 +1,18 @@
 Moriah = RegisterMod("Moriah", 1)
 
 local json = require("json")
-local support = require("support")
 
-local items = {
-  bowtie      = require("bowtie"),
-  coffee_bean = require("coffee_bean"),
-  eggs        = require("eggs"),
-  fishbowl    = require("fishbowl"),
-  helium      = require("helium"),
-  hymnal      = require("hymnal"),
-  lunchbox    = require("lunchbox"),
-  plant       = require("plant"),
-  tissues     = require("tissues"),
-  whistle     = require("whistle"),
+local actors = {
+  bowtie,
+  coffee_bean,
+  eggs,
+  fishbowl,
+  helium,
+  hymnal,
+  lunchbox,
+  plant,
+  tissues,
+  whistle,
 }
 
 function Moriah:Validate()
@@ -26,9 +25,9 @@ function Moriah:stage()
   support.print("stage")
   Moriah.Data = {}
 
-  for _, item in pairs(items) do
-    if item.stage ~= nil then
-      item.stage(Moriah.Data)
+  for _, actor in pairs(actors) do
+    if actor.stage ~= nil then
+      actor.stage(Moriah.Data)
     end
   end
 end
@@ -40,10 +39,10 @@ function Moriah:initalize()
     table.insert(players, Game():GetPlayer(i))
   end
 
-  for _, item in pairs(items) do
-    if item.initalize_player ~= nil then
+  for _, actor in pairs(actors) do
+    if actor.initalize_player ~= nil then
       for _, player in pairs(players) do
-        item.initalize_player(Moriah.Data, player)
+        actor.initalize_player(Moriah.Data, player)
       end
     end
   end
@@ -101,10 +100,10 @@ function Moriah:reset()
     table.insert(players, Game():GetPlayer(i))
   end
 
-  for _, item in pairs(items) do
-    if item.reset_player ~= nil then
+  for _, actor in pairs(actors) do
+    if actor.reset_player ~= nil then
       for _, player in pairs(players) do
-        item.reset_player(Moriah.Data, player)
+        actor.reset_player(Moriah.Data, player)
       end
     end
   end
@@ -121,14 +120,14 @@ function Moriah:render()
     table.insert(players, Game():GetPlayer(i))
   end
 
-  for _, item in pairs(items) do
-    if item.render then
-      item.render(Moriah.Data)
+  for _, actor in pairs(actors) do
+    if actor.render then
+      actor.render(Moriah.Data)
     end
 
-    if item.render_player then
+    if actor.render_player then
       for _, player in pairs(players) do
-        item.render_player(Moriah.Data, player)
+        actor.render_player(Moriah.Data, player)
       end
     end
   end
@@ -196,9 +195,9 @@ function Moriah:callback_template(name)
     Moriah:Validate()
 
     local result = nil
-    for _, item in pairs(items) do
-      if item[name] then
-        local local_result = item[name](table.unpack(arguments))
+    for _, actor in pairs(actors) do
+      if actor[name] then
+        local local_result = actor[name](table.unpack(arguments))
 
         if local_result ~= nil then
           result = local_result

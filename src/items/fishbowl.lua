@@ -1,5 +1,3 @@
-local support = require("support")
-
 local fishbowl_id = Isaac.GetItemIdByName("Fishbowl")
 
 local fishbowl = {
@@ -41,4 +39,3 @@ function fishbowl.pre_projectile_collision(data, projectile, collider)
 end
 
 support.print("Loaded moriah.fishbowl")
-return fishbowl

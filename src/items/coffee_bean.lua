@@ -1,5 +1,3 @@
-local support = require("support")
-
 local coffee_bean_id = Isaac.GetItemIdByName("Coffee Bean")
 
 local coffee_bean = {
@@ -34,5 +32,3 @@ function coffee_bean.entity_take_damage(data, damaged)
     room:SpawnGridEntity(index, GridEntityType.GRID_POOP, type, support.random_seed(), 0)
   end
 end
-
-return coffee_bean

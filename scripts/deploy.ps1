@@ -1,3 +1,8 @@
+$script_path = Split-Path $MyInvocation.MyCommand.Path -Parent
+
+$root_path = Resolve-Path "${script_path}/.."
+$build_path = Resolve-Path "${root_path}/build"
+
 $mod_name = 'moriah'
 
 $steam_path = Get-ItemPropertyValue -Path 'HKLM:\SOFTWARE\Valve\Steam\' 'InstallPath' -ErrorAction SilentlyContinue
@@ -19,4 +24,4 @@ $isaac_mod_path
 
 Remove-Item $isaac_mod_path -Recurse -Force -Confirm:$false -ErrorAction SilentlyContinue
 
-Copy-Item -Recurse -Force -Path "${pwd}" $isaac_mod_path
+Copy-Item -Recurse -Force -Path "$build_path" $isaac_mod_path

@@ -1,5 +1,3 @@
-local support = require("support")
-
 local tissues_id = Isaac.GetTrinketIdByName("Tissues")
 
 local tissues = {
@@ -76,5 +74,3 @@ function tissues.pre_player_collision(data, player, collider)
     effect:Remove()
   end
 end
-
-return tissues

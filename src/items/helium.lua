@@ -1,5 +1,3 @@
-local support = require("support")
-
 local helium_id = Isaac.GetItemIdByName("Helium")
 local balloon_id = Isaac.GetEntityVariantByName("Helium Balloon")
 
@@ -210,5 +208,3 @@ function helium.entity_take_damage(data, damaged)
     return false
   end
 end
-
-return helium

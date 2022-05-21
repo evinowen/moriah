@@ -1,5 +1,3 @@
-local support = require("support")
-
 local lunchbox_id = Isaac.GetItemIdByName("Lunchbox")
 local packed_lunchbox_id = Isaac.GetItemIdByName("Packed Lunchbox")
 local packed_lunchbox_entity_id = Isaac.GetEntityVariantByName("Packed Lunchbox")
@@ -169,4 +167,3 @@ function lunchbox.familiar_update(data, familiar)
 end
 
 support.print("Loaded moriah.lunchbox")
-return lunchbox

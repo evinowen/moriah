@@ -1,5 +1,3 @@
-local support = require("support")
-
 local plant_id = Isaac.GetItemIdByName("Plant")
 
 local plant_familiar_id = Isaac.GetEntityVariantByName("Plant")
@@ -161,5 +159,3 @@ function plant.pre_projectile_collision(data, projectile, collider)
 
   projectile:Kill()
 end
-
-return plant

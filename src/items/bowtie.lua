@@ -15,5 +15,3 @@ function bowtie.fire(data, tear)
     end
   end
 end
-
-return bowtie

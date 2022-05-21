@@ -67,4 +67,3 @@ function support.check_familiar(player, familiar_variant_id, familiar_count, sou
 end
 
 support.print("Loaded moriah.support")
-return support
