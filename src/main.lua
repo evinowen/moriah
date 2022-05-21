@@ -4,6 +4,7 @@ local json = require("json")
 
 local actors = {
   bowtie,
+  butchers_apron,
   coffee_bean,
   eggs,
   fishbowl,
