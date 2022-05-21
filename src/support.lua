@@ -61,7 +61,11 @@ function support.create_random_generator()
 end
 
 function support.check_familiar(player, familiar_variant_id, familiar_count, source_collectible_id)
-  local item_config = Isaac.GetItemConfig():GetCollectible(source_collectible_id)
+  local item_config = nil
+
+  if source_collectible_id then
+    item_config = Isaac.GetItemConfig():GetCollectible(source_collectible_id)
+  end
 
   player:CheckFamiliar(familiar_variant_id, familiar_count, support.create_random_generator(), item_config)
 end
