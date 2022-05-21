@@ -10,6 +10,7 @@ local actors = {
   helium,
   hymnal,
   lunchbox,
+  old_maid,
   plant,
   tissues,
   whistle,
@@ -143,12 +144,20 @@ local methods = {
     name = "use_item",
   },
   {
+    flag = ModCallbacks.MC_USE_CARD,
+    name = "use_card",
+  },
+  {
     flag = ModCallbacks.MC_EVALUATE_CACHE,
     name = "evaluate_cache",
   },
   {
     flag = ModCallbacks.MC_POST_FIRE_TEAR,
     name = "fire",
+  },
+  {
+    flag = ModCallbacks.MC_POST_NEW_ROOM,
+    name = "post_new_room",
   },
   {
     flag = ModCallbacks.MC_POST_PEFFECT_UPDATE,
