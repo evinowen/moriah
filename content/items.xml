@@ -38,4 +38,7 @@
 
   <!-- Butcher's Apron -->
   <passive name="Butcher's Apron" description="How could you be so mean?" gfx="butchers.apron.png" cache="weapon flying" tag="tradesmen" />
+
+  <!-- Baker's Apron -->
+  <passive name="Baker's Apron" description="Bake me a cake as fast as you can" gfx="bakers.apron.png" cache="weapon flying" tag="tradesmen" />
 </items>

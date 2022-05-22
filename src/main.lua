@@ -3,6 +3,7 @@ Moriah = RegisterMod("Moriah", 1)
 local json = require("json")
 
 local actors = {
+  bakers_apron,
   bowtie,
   butchers_apron,
   coffee_bean,
