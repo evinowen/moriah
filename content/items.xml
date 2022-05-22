@@ -41,4 +41,7 @@
 
   <!-- Baker's Apron -->
   <passive name="Baker's Apron" description="Bake me a cake as fast as you can" gfx="bakers.apron.png" cache="weapon flying" tag="tradesmen" />
+
+  <!-- Chandler's Apron -->
+  <passive name="Chandler's Apron" description="Jack be nimble, Jack be quick" gfx="chandlers.apron.png" cache="weapon flying" tag="tradesmen"/>
 </items>

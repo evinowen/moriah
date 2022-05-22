@@ -6,6 +6,7 @@ local actors = {
   bakers_apron,
   bowtie,
   butchers_apron,
+  chandlers_apron,
   coffee_bean,
   eggs,
   fishbowl,
