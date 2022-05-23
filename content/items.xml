@@ -16,7 +16,7 @@
   <active name="Egg Carton" description="0-Pack!" gfx="eggs0.png" chargetype="timed" maxcharges="90" />
 
   <!-- Plant -->
-  <familiar name="Plant" gfx="plant.png" tags="monstermanual" />
+  <familiar name="Plant" description="plaaaaant" gfx="plant.png" tags="monstermanual" />
 
   <!-- Helium -->
   <active name="Helium" description="I be a wee little Leprechaun!" gfx="helium.png" chargetype="timed" maxcharges="360" />
@@ -28,10 +28,10 @@
   <trinket name="Tissues" description="Dry your tears" gfx="tissues.png"  />
 
   <!-- Hymnal -->
-  <active name="Hymnal" description="Bored again Christian" gfx="Hymnal.png" maxcharges="6" tags="book" />
+  <active name="Hymnal" description="Bored again Christian" gfx="hymnal.png" maxcharges="6" tags="book" />
 
   <!-- Coffee Bean -->
-  <passive name="Coffee Bean" description="lightly roasted" gfx="coffee_bean.png" cache="speed" tags="poop" />
+  <passive name="Coffee Bean" description="Lightly roasted" gfx="coffee_bean.png" cache="speed" tags="poop" />
 
   <!-- Bow Tie -->
   <passive name="Bow Tie" description="HP up + you feel charming" gfx="bowtie.png" hearts="2" maxhearts="2" />
