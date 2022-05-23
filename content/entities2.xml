@@ -1,4 +1,7 @@
 <entities anm2root="gfx/" version="5">
+    <entity anm2path="butchers_cleaver.anm2" baseHP="0" boss="0" champion="0" collisionDamage="12" collisionInterval="7" collisionMass="3" collisionRadius="14" friction="1" id="3" name="Butcher's Cleaver" numGridCollisionPoints="12" shadowSize="10" stageHP="0">
+        <gibs amount="0" blood="0" bone="0" eye="0" gut="0" large="0" />
+    </entity>
     <entity anm2path="lunchbox.anm2" baseHP="0" boss="0" champion="0" collisionDamage="1" collisionMass="3" collisionRadius="10" friction="1" id="3" name="Packed Lunchbox" numGridCollisionPoints="10" shadowSize="5" stageHP="0">
         <gibs amount="0" blood="0" bone="0" eye="0" gut="0" large="0" />
     </entity>

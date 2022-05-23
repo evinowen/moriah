@@ -16,6 +16,7 @@ local actors = {
   old_maid,
   plant,
   tissues,
+  tradesman,
   whistle,
 }
 
@@ -155,6 +156,14 @@ local methods = {
     name = "evaluate_cache",
   },
   {
+    flag = ModCallbacks.MC_POST_TEAR_INIT,
+    name = "post_tear_init",
+  },
+  {
+    flag = ModCallbacks.MC_POST_TEAR_UPDATE,
+    name = "post_tear_update",
+  },
+  {
     flag = ModCallbacks.MC_POST_FIRE_TEAR,
     name = "fire",
   },
@@ -165,6 +174,10 @@ local methods = {
   {
     flag = ModCallbacks.MC_POST_PEFFECT_UPDATE,
     name = "post_perfect_update",
+  },
+  {
+    flag = ModCallbacks.MC_POST_PLAYER_UPDATE,
+    name = "post_player_update",
   },
   {
     flag = ModCallbacks.MC_FAMILIAR_INIT,
