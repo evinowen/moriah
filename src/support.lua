@@ -7,8 +7,37 @@ local support = {
     RAINBOW = 4,
     BLACK   = 5,
     HOLY    = 6,
+  },
+  debug = {
+    skip = 0,
+    top = 100,
   }
 }
+
+function support.debug_object(object)
+  support.print("Debug Object:")
+  local count = 0
+  for key,value in pairs(getmetatable(object)) do
+    count = count + 1
+
+    if count > support.debug.skip and count <= support.debug.top + support.debug.skip then
+      support.print(key, value)
+    end
+  end
+end
+
+function support.debug_table(table)
+  support.print("Debug Table:")
+  local count = 0
+
+  for key,value in pairs(table) do
+    count = count + 1
+
+    if count > support.debug.skip and count <= support.debug.top + support.debug.skip then
+      support.print(key, value)
+    end
+  end
+end
 
 function support.print(message)
   local parameter_type = type(message)
