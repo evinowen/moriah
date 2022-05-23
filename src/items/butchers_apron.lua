@@ -57,7 +57,7 @@ function butchers_apron.entity_take_damage(data, entity, damage, flags, source)
   data.butchers[tag].blood = data.butchers[tag].blood + (data.butchers[tag].skill * damage)
   data.butchers[tag].total = data.butchers[tag].total + damage
 
-  local fortune = null
+  local fortune = nil
 
   if data.butchers[tag].total > 5000 then
     if data.butchers[tag].skill ~= 4 then
@@ -83,7 +83,6 @@ function butchers_apron.entity_take_damage(data, entity, damage, flags, source)
     hud:ShowFortuneText(fortune)
     player:AnimateHappy()
   end
-
 end
 
 function butchers_apron.post_perfect_update(data, player)
