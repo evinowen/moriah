@@ -20,7 +20,7 @@ function bakers_apron.initalize_player(data, player)
     tears = 0.5,
     frame = 0,
     foot = false,
-    healhcheck = -1
+    healthcheck = nil
   }
 end
 
@@ -42,18 +42,19 @@ function bakers_apron.gain_flour(data, player)
   local tag = support.tag(player)
   local hearts = player:GetHearts()
 
-  if data.bakers[tag].healhcheck == hearts then
+  if data.bakers[tag].healthcheck == hearts then
     return
   end
 
-  local healthcheck_cache = data.bakers[tag].healhcheck
+  local healthcheck_cache = data.bakers[tag].healthcheck
 
-  local difference = hearts - data.bakers[tag].healhcheck
-  data.bakers[tag].healhcheck = hearts
+  data.bakers[tag].healthcheck = hearts
 
   if healthcheck_cache == nil then
     return
   end
+
+  local difference = hearts - healthcheck_cache
 
   if difference < 1 then
     return
@@ -99,10 +100,6 @@ function bakers_apron.post_perfect_update(data, player)
 
   local tag = support.tag(player)
 
-  if data.bakers[tag].flour > 0 then
-    data.bakers[tag].flour = data.bakers[tag].flour - 1
-  end
-
   bakers_apron.gain_flour(data, player)
 
   local tears = data.bakers[tag].tears
@@ -122,44 +119,48 @@ function bakers_apron.post_perfect_update(data, player)
     player:EvaluateItems()
   end
 
+  if data.bakers[tag].flour <= 0 then
+    return
+  end
+
+  data.bakers[tag].flour = data.bakers[tag].flour - 1
+
   if player:GetMovementDirection() == Direction.NO_DIRECTION then
     return
   end
 
-  if data.bakers[tag].flour > 0 then
-    local offset = Vector.Zero
-    local scale = 0.1
-    if player.CanFly == true then
-      scale = 0.2
+  local offset = Vector.Zero
+  local scale = 0.1
+  if player.CanFly == true then
+    scale = 0.2
+    data.bakers[tag].frame = data.bakers[tag].frame + 1
+    if data.bakers[tag].frame > 5 then
+      data.bakers[tag].frame = 0
+    else
+      return
+    end
+  else
+    if data.bakers[tag].foot then
       data.bakers[tag].frame = data.bakers[tag].frame + 1
-      if data.bakers[tag].frame > 5 then
-        data.bakers[tag].frame = 0
-      else
+      if data.bakers[tag].frame < bakers_apron.feed_frames then
         return
       end
+
+      data.bakers[tag].foot = false
+      offset = Vector.One * bakers_apron.feed_distance
     else
-      if data.bakers[tag].foot then
-        data.bakers[tag].frame = data.bakers[tag].frame + 1
-        if data.bakers[tag].frame < bakers_apron.feed_frames then
-          return
-        end
-
-        data.bakers[tag].foot = false
-        offset = Vector.One * bakers_apron.feed_distance
-      else
-        data.bakers[tag].frame = data.bakers[tag].frame - 1
-        if data.bakers[tag].frame > bakers_apron.feed_frames * -1 then
-          return
-        end
-
-        data.bakers[tag].foot = true
-        offset = Vector.One * bakers_apron.feed_distance * -1
+      data.bakers[tag].frame = data.bakers[tag].frame - 1
+      if data.bakers[tag].frame > bakers_apron.feed_frames * -1 then
+        return
       end
-    end
 
-    local entity = Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.BLOOD_SPLAT, 0, player.Position + offset, Vector.Zero, player)
-    local effect = entity:ToEffect()
-    effect.Scale = scale + (scale * data.bakers[tag].skill)
-    effect:SetColor(Color(1, 1, 1, 1, 1, 1, 1), -1, 1, false, false)
+      data.bakers[tag].foot = true
+      offset = Vector.One * bakers_apron.feed_distance * -1
+    end
   end
+
+  local entity = Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.BLOOD_SPLAT, 0, player.Position + offset, Vector.Zero, player)
+  local effect = entity:ToEffect()
+  effect.Scale = scale + (scale * data.bakers[tag].skill)
+  effect:SetColor(Color(1, 1, 1, 1, 1, 1, 1), -1, 1, false, false)
 end
