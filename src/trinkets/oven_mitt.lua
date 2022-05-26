@@ -9,8 +9,6 @@ function oven_mitt.pre_player_collision(data, player, collider)
     return
   end
 
-  support.print("OVEN MITTTT!")
-
   if collider.Type == EntityType.ENTITY_FIREPLACE then
     return true
   end
@@ -27,8 +25,6 @@ function oven_mitt.entity_take_damage(data, entity, amount, flags, source, count
   if not player:HasTrinket(oven_mitt_id, true) then
     return
   end
-
-  support.print("OVEN MITTTT!")
 
   if source.Type == EntityType.ENTITY_FIREPLACE then
     return false
