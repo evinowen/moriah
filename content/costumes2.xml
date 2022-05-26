@@ -1,6 +1,8 @@
 <costumes anm2root="gfx/characters/">
   <costume id="1" anm2path="fishbowl.anm2" type="passive" isFlying="true" hasSkinAlt="true" />
 
+  <costume anm2path="old_maid.anm2" type="none" priority="19" hasSkinAlt="true" />
+
   <costume anm2path="butchers.apron.anm2" type="none" />
   <costume anm2path="bakers.apron.anm2" type="none" />
   <costume anm2path="chandlers.apron.anm2" type="none" />

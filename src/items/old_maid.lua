@@ -26,7 +26,8 @@ local old_maid = {
     [PickupVariant.PICKUP_HEART] = {
       [HeartSubType.HEART_FULL] = 3,
     }
-  }
+  },
+  costume = Isaac.GetCostumeIdByPath("gfx/characters/old_maid.anm2"),
 }
 
 function old_maid.stage(data)
@@ -38,7 +39,7 @@ function old_maid.stage(data)
   data.cleaning = {}
 end
 
-function old_maid.reset_player(data, player)
+function old_maid.initalize_player(data, player)
   local tag = support.tag(player)
 
   data.cleaning[tag] = {
@@ -47,6 +48,15 @@ function old_maid.reset_player(data, player)
     frames = 0,
     aniskip = 0
   }
+end
+
+function old_maid.reset_player(data, player)
+  local tag = support.tag(player)
+
+  if data.cleaning[tag].value > 0 then
+    data.cleaning[tag].value = 0
+    player:TryRemoveNullCostume(old_maid.costume)
+  end
 end
 
 function old_maid.use_card(data, card_id, player)
@@ -68,6 +78,7 @@ function old_maid.post_perfect_update(data, player)
   end
 
   data.cleaning[tag].run = false
+  data.cleaning[tag].value = 0
   data.cleaning[tag].frames = 140
   data.cleaning[tag].aniskip = 1
 
@@ -184,6 +195,12 @@ function old_maid.post_perfect_update(data, player)
     end
   end
 
+  if value <= 0 then
+    return
+  end
+
+  player:AddNullCostume(old_maid.costume)
+
   data.cleaning[tag].value = value
 
   local damage = data.cleaning[tag].value * old_maid.damage_per_cent
@@ -197,8 +214,6 @@ function old_maid.post_perfect_update(data, player)
       entity:TakeDamage(damage, 0, EntityRef(player), 10)
     end
   end
-
-
 end
 
 function old_maid.render_player(data, player)
