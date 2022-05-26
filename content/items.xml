@@ -37,7 +37,7 @@
   <passive name="Coffee Bean" description="Lightly roasted" gfx="coffee_bean.png" cache="speed" tags="poop" />
 
   <!-- Bow Tie -->
-  <passive name="Bow Tie" description="HP up + you feel charming" gfx="bowtie.png" hearts="2" maxhearts="2" />
+  <passive id="2" name="Bow Tie" description="HP up + you feel charming" gfx="bowtie.png" hearts="2" maxhearts="2" />
 
   <!-- Butcher's Apron -->
   <passive name="Butcher's Apron" description="How could you be so mean?" gfx="butchers.apron.png" cache="weapon flying" tag="tradesmen" />
