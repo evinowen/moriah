@@ -38,6 +38,10 @@ function butchers_apron.entity_take_damage(data, entity, damage, flags, source)
     return
   end
 
+  if source.Entity == nil then
+    return
+  end
+
   local player = source.Entity:ToPlayer()
 
   if not player and source.Entity.Parent then
