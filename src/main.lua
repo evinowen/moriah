@@ -12,6 +12,7 @@ local actors = {
   fishbowl,
   helium,
   hymnal,
+  oil_lamp,
   lunchbox,
   old_maid,
   plant,
