@@ -56,5 +56,6 @@ function Include-Source-Directory {
 
 Include-Source-File -path "src\support.lua"
 Include-Source-Directory -path "src\items"
+Include-Source-Directory -path "src\trinkets"
 Include-Source-Directory -path "src\transformations"
 Include-Source-File -path "src\main.lua"
