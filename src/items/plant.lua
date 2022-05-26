@@ -84,8 +84,6 @@ end
 
 
 function plant.pre_projectile_collision(data, projectile, collider)
-  support.print("plant.pre_projectile_collision! "..projectile.Damage)
-
   local familiar = collider:ToFamiliar()
 
   if not familiar then
@@ -110,10 +108,8 @@ function plant.pre_projectile_collision(data, projectile, collider)
     familiar:SetColor(Color(1, 1, 1, 1, 1, 1, 1), 15, 1, true, false)
     data.pots[tag][pot_key].water = data.pots[tag][pot_key].water + 1
 
-    support.print("plant.pre_projectile_collision! water "..data.pots[tag][pot_key].water)
     if data.pots[tag][pot_key].water >= 10 then
       local number = Random() % 4
-      support.print("plant.pre_projectile_collision! grow! "..number)
       if number == 1 then
         data.pots[tag][pot_key].stage = 1
       elseif number == 2 then
