@@ -157,6 +157,10 @@ local methods = {
     name = "evaluate_cache",
   },
   {
+    flag = ModCallbacks.MC_POST_UPDATE,
+    name = "post_update",
+  },
+  {
     flag = ModCallbacks.MC_POST_TEAR_INIT,
     name = "post_tear_init",
   },
@@ -175,6 +179,14 @@ local methods = {
   {
     flag = ModCallbacks.MC_POST_PEFFECT_UPDATE,
     name = "post_perfect_update",
+  },
+  {
+    flag = ModCallbacks.MC_POST_EFFECT_UPDATE,
+    name = "post_effect_update",
+  },
+  {
+    flag = ModCallbacks.MC_PRE_ENTITY_SPAWN,
+    name = "pre_entity_spawn",
   },
   {
     flag = ModCallbacks.MC_POST_PLAYER_UPDATE,

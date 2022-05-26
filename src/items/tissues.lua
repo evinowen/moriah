@@ -2,7 +2,10 @@ local tissues_id = Isaac.GetTrinketIdByName("Tissues")
 
 local tissues = {
   id_table = { tissues_id },
-  tissue_throw_speed = 3,
+  tick = 0,
+  tick_length = 5,
+  tissue_throw_speed = 0.2,
+  tissue_reach_squared = 2048,
   creep = {
     EffectVariant.CREEP_RED,
     EffectVariant.CREEP_GREEN,
@@ -23,7 +26,11 @@ local tissues = {
     EffectVariant.CREEP_SLIPPERY_BROWN_GROWING,
     EffectVariant.CREEP_STATIC,
     EffectVariant.CREEP_LIQUID_POOP,
-  }
+  },
+  effects = {
+    queue = {},
+    objects = {},
+  },
 }
 
 function tissues.stage(data)
@@ -33,8 +40,17 @@ end
 function tissues.initalize_player(data, player)
   local tag = support.tag(player)
 
-  data.tissues[tag] = 0
+  data.tissues[tag] = {
+    tick = tissues.tick_length,
+    current = 0
+  }
 end
+
+function tissues.post_new_room(data)
+  tissues.effects.queue = nil
+  tissues.effects.objects = {}
+end
+
 
 function tissues.fire(data, tear)
   local entity = tear.SpawnerEntity
@@ -44,33 +60,74 @@ function tissues.fire(data, tear)
     tear:Remove()
 
     local tag = support.tag(player)
-    data.tissues[tag] = data.tissues[tag] + 1
+    data.tissues[tag].current = data.tissues[tag].current + 1
 
-    if data.tissues[tag] >= 10 then
+    if data.tissues[tag].current >= 10 then
       local velocity = player.Velocity:Normalized() * -1 * tissues.tissue_throw_speed
       local tissue = Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.WOOD_PARTICLE, 1, player.Position, velocity, player)
       tissue:SetColor(Color(0.8, 0.8, 0.9, 1, 0.9, 0.9, 0.9), -1, 1, false, false)
 
-      data.tissues[tag] = 0
+      data.tissues[tag].current = 0
     end
   end
 end
 
-function tissues.pre_player_collision(data, player, collider)
-  local effect = collider:ToEffect()
-
-  if not effect then
+function tissues.pre_entity_spawn(data, type, variant, subtype, position, velocity, spawner, seed)
+  if type ~= EntityType.ENTITY_EFFECT then
+    return
+  end
+  if not support.contains(tissues.creep, variant) then
     return
   end
 
-  support.print("tissues.pre_player_collision effect! "..effect.Variant)
+  if tissues.effects.queue == nil then
+    tissues.effects.queue = {}
+  end
 
-  if support.contains(tissues.creep, effect.Variant) then
-    local velocity = player.Velocity:Normalized() * -1 * tissues.tissue_throw_speed
-    local tissue = Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.WOOD_PARTICLE, 1, player.Position, velocity, player)
-    tissue:SetColor(effect:GetColor(), -1, 1, false, false)
+  table.insert(tissues.effects.queue, seed)
+end
 
-    data.tissues[tag] = 0
-    effect:Remove()
+function tissues.post_update(data)
+  if tissues.effects.queue == nil then
+    return
+  end
+
+  local room = Game():GetRoom()
+
+  local entities = room:GetEntities()
+  local entities_size = entities.Size - 1
+  for i = 0, entities_size do
+    local entity = entities:Get(i)
+
+    if support.contains(tissues.effects.queue, entity.InitSeed) then
+      table.insert(tissues.effects.objects, entity:ToEffect())
+    end
+  end
+
+  tissues.effects.queue = nil
+
+  tissues.tick = tissues.tick - 1
+
+  if tissues.tick > 0 then
+    return
+  end
+
+  tissues.tick = tissues.tick_length
+
+  local player_count = Game():GetNumPlayers()
+
+  for i = 0, player_count do
+    local objects = {}
+    local player = Game():GetPlayer(i)
+
+    for _, effect in pairs(tissues.effects.objects) do
+      if (player.Position - effect.Position):LengthSquared() <= tissues.tissue_reach_squared then
+        effect:Kill()
+      else
+        table.insert(objects, effect)
+      end
+    end
+
+    tissues.effects.objects = objects
   end
 end
