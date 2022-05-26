@@ -15,6 +15,7 @@ local actors = {
   oil_lamp,
   lunchbox,
   old_maid,
+  oven_mitt,
   plant,
   tissues,
   tradesman,
