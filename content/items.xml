@@ -28,7 +28,7 @@
   <familiar name="Oil Lamp" description="I've got the black lung, pop." gfx="oil_lamp.png" maxcharges="3" />
 
   <!-- Oven Mitt -->
-  <trinket name="Oven Mitt" description="Play with fire" gfx="oven.mitt.png"  />
+  <trinket name="Oven Mitt" description="Play with fire" gfx="oven_mitt.png"  />
 
   <!-- Tissues -->
   <trinket name="Tissues" description="Dry your tears" gfx="tissues.png"  />
