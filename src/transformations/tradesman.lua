@@ -53,6 +53,8 @@ function tradesman.evaluate_cache(data, player, flag)
   end
 
   if flag == CacheFlag.CACHE_TEARFLAG then
+    local tag = support.tag(player)
+
     if data.tradesmen[tag].realized then
       player.TearFlags = player.TearFlags | tradesmen.tears
     end
