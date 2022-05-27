@@ -56,6 +56,9 @@ function eggs.use_item(data, item_id, _, player)
       player:RemoveCollectible(eggs_0_id)
       player:AddHearts(2)
 
+      SFXManager():Play(SoundEffect.SOUND_POWERUP1)
+      Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.HEART, 0, player.Position + Vector(0, -60), Vector.Zero, player)
+
       return {
         Discharge = true,
         Remove = true,
@@ -134,8 +137,8 @@ function eggs.render_player(data, player)
       tear:AddTearFlags(TearFlags.TEAR_KNOCKBACK)
       tear:AddTearFlags(TearFlags.TEAR_BAIT)
 
-      tear.FallingSpeed = -8
-      tear.FallingAcceleration = 0.05
+      tear.FallingSpeed = -5
+      tear.FallingAcceleration = 0.1
 
       local sprite = tear:GetSprite()
       sprite:Play(sprite:GetDefaultAnimation(), true)
@@ -144,4 +147,32 @@ function eggs.render_player(data, player)
   end
 end
 
-support.print("Loaded moriah.eggs")
+function eggs.post_entity_remove(data, entity)
+  local tear = entity:ToTear()
+
+  if not tear then
+    return
+  end
+
+  if tear.Variant ~= egg_tear_id then
+    return
+  end
+
+
+  SFXManager():Play(SoundEffect.SOUND_BONE_SNAP)
+
+  Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.TOOTH_PARTICLE, 0, entity.Position, Vector.One:Rotated(Random() % 360) * 3, entity)
+  Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.TOOTH_PARTICLE, 0, entity.Position, Vector.One:Rotated(Random() % 360) * 3, entity)
+  Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.TOOTH_PARTICLE, 0, entity.Position, Vector.One:Rotated(Random() % 360) * 3, entity)
+
+  local effect = Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.BLOOD_SPLAT, 0, entity.Position, Vector.Zero, entity):ToEffect()
+  local color = Color(1, 1, 1, 1, 1, 1, 1)
+  color:SetColorize(2, 2, 2, 0.8)
+  effect:SetColor(color, -1, 1, false, false)
+
+  local effect = Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.BLOOD_SPLAT, 0, entity.Position, Vector.Zero, entity):ToEffect()
+  effect.Scale = 0.65
+  local color = Color(1, 1, 1, 1, 0, 0, 0)
+  color:SetColorize(8, 6, 0, 1)
+  effect:SetColor(color, -1, 1, false, false)
+end

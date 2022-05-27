@@ -206,6 +206,10 @@ local methods = {
     name = "entity_take_damage",
   },
   {
+    flag = ModCallbacks.MC_POST_ENTITY_REMOVE,
+    name = "post_entity_remove",
+  },
+  {
     flag = ModCallbacks.MC_PRE_FAMILIAR_COLLISION,
     name = "pre_familiar_collision",
   },
