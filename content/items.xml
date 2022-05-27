@@ -1,10 +1,18 @@
 <items gfxroot="gfx/items/" version="1">
-  <!-- Fishbowl -->
-  <passive id="1" name="Fishbowl" description="blub blub blub" gfx="fishbowl.png" cache="flying" />
+  <!-- Baker's Apron -->
+  <passive name="Baker's Apron" description="Bake me a cake as fast as you can" gfx="bakers.apron.png" cache="weapon flying" tag="tradesmen" />
 
-  <!-- Lunchbox -->
-  <active name="Lunchbox" description="Stay Fresh!™" gfx="lunchbox.png" maxcharges="8" />
-  <familiar name="Packed Lunchbox" gfx="packed_lunchbox.png" />
+  <!-- Bow Tie -->
+  <passive id="1" name="Bow Tie" description="HP up + you feel charming" gfx="bowtie.png" hearts="2" maxhearts="2" />
+
+  <!-- Butcher's Apron -->
+  <passive name="Butcher's Apron" description="How could you be so mean?" gfx="butchers.apron.png" cache="weapon flying" tag="tradesmen" />
+
+  <!-- Chandler's Apron -->
+  <passive name="Chandler's Apron" description="Jack be nimble, Jack be quick" gfx="chandlers.apron.png" cache="weapon flying" tag="tradesmen"/>
+
+  <!-- Coffee Bean -->
+  <passive name="Coffee Bean" description="Speed Up" gfx="coffee_bean.png" cache="speed" tags="poop" />
 
   <!-- Eggs -->
   <active name="Eggs"       description="6-Pack!" gfx="eggs.png"  chargetype="timed" maxcharges="90" />
@@ -15,14 +23,18 @@
   <active name="Eggs (1)"   description="1-Pack!" gfx="eggs1.png" chargetype="timed" maxcharges="90" />
   <active name="Egg Carton" description="0-Pack!" gfx="eggs0.png" chargetype="timed" maxcharges="90" />
 
-  <!-- Plant -->
-  <familiar name="Plant" description="plaaaaant" gfx="plant.png" tags="monstermanual" />
+  <!-- Fishbowl -->
+  <passive id="2" name="Fishbowl" description="blub blub blub" gfx="fishbowl.png" cache="flying" />
 
   <!-- Helium -->
   <active name="Helium" description="I be a wee little Leprechaun!" gfx="helium.png" chargetype="timed" maxcharges="360" />
 
-  <!-- Whistle -->
-  <active name="Whistle" description="Rock you like a Whirlwind" gfx="whistle.png" maxcharges="3" />
+  <!-- Hymnal -->
+  <active name="Hymnal" description="Bored again Christian" gfx="hymnal.png" maxcharges="6" tags="book" />
+
+  <!-- Lunchbox -->
+  <active name="Lunchbox" description="Stay Fresh!™" gfx="lunchbox.png" maxcharges="8" />
+  <familiar name="Packed Lunchbox" gfx="packed_lunchbox.png" />
 
   <!-- Oil Lamp -->
   <familiar name="Oil Lamp" description="I've got the black lung, pop." gfx="oil_lamp.png" maxcharges="3" />
@@ -30,24 +42,12 @@
   <!-- Oven Mitt -->
   <trinket id="3" name="Oven Mitt" description="Play with fire" gfx="oven_mitt.png"  />
 
+  <!-- Plant -->
+  <familiar name="Plant" description="plaaaaant" gfx="plant.png" tags="monstermanual" />
+
   <!-- Tissues -->
   <trinket name="Tissues" description="Dry your tears" gfx="tissues.png"  />
 
-  <!-- Hymnal -->
-  <active name="Hymnal" description="Bored again Christian" gfx="hymnal.png" maxcharges="6" tags="book" />
-
-  <!-- Coffee Bean -->
-  <passive name="Coffee Bean" description="Lightly roasted" gfx="coffee_bean.png" cache="speed" tags="poop" />
-
-  <!-- Bow Tie -->
-  <passive id="2" name="Bow Tie" description="HP up + you feel charming" gfx="bowtie.png" hearts="2" maxhearts="2" />
-
-  <!-- Butcher's Apron -->
-  <passive name="Butcher's Apron" description="How could you be so mean?" gfx="butchers.apron.png" cache="weapon flying" tag="tradesmen" />
-
-  <!-- Baker's Apron -->
-  <passive name="Baker's Apron" description="Bake me a cake as fast as you can" gfx="bakers.apron.png" cache="weapon flying" tag="tradesmen" />
-
-  <!-- Chandler's Apron -->
-  <passive name="Chandler's Apron" description="Jack be nimble, Jack be quick" gfx="chandlers.apron.png" cache="weapon flying" tag="tradesmen"/>
+  <!-- Whistle -->
+  <active name="Whistle" description="Rock you like a Whirlwind" gfx="whistle.png" maxcharges="3" />
 </items>
