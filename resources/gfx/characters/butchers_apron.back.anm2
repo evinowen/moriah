@@ -1,9 +1,9 @@
 <AnimatedActor>
-	<Info CreatedBy="Unknown" CreatedOn="5/12/2022 11:25:48 AM" Version="22" Fps="30"/>
+	<Info CreatedBy="Unknown" CreatedOn="5/12/2022 11:25:33 AM" Version="20" Fps="30"/>
 	<Content>
 		<Spritesheets>
-			<Spritesheet Path="costumes\bakers.apron.glow.png" Id="0"/>
-			<Spritesheet Path="costumes\bakers.apron.png" Id="1"/>
+			<Spritesheet Path="costumes\butchers_apron.glow.png" Id="0"/>
+			<Spritesheet Path="costumes\butchers_apron.png" Id="1"/>
 		</Spritesheets>
 		<Layers>
 			<Layer Name="glow" Id="0" SpritesheetId="0"/>

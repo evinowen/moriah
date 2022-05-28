@@ -5,11 +5,11 @@
 
   <costume anm2path="old_maid.anm2" type="none" priority="19" hasSkinAlt="true" />
 
-  <costume anm2path="butchers.apron.anm2" type="none" />
-  <costume anm2path="bakers.apron.anm2" type="none" />
-  <costume anm2path="chandlers.apron.anm2" type="none" />
-  <costume anm2path="butchers.apron.back.anm2" type="none" />
-  <costume anm2path="bakers.apron.back.anm2" type="none" />
-  <costume anm2path="chandlers.apron.back.anm2" type="none" />
+  <costume anm2path="butchers_apron.anm2" type="none" />
+  <costume anm2path="bakers_apron.anm2" type="none" />
+  <costume anm2path="chandlers_apron.anm2" type="none" />
+  <costume anm2path="butchers_apron.back.anm2" type="none" />
+  <costume anm2path="bakers_apron.back.anm2" type="none" />
+  <costume anm2path="chandlers_apron.back.anm2" type="none" />
   <costume anm2path="tradesman.anm2" type="none" skinColor="1" isFlying="true" overwriteColor="true" />
 </costumes>

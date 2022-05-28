@@ -2,8 +2,8 @@
 	<Info CreatedBy="Unknown" CreatedOn="4/23/2022 11:17:41 PM" Version="19" Fps="30"/>
 	<Content>
 		<Spritesheets>
-			<Spritesheet Path="costumes\bakers.apron.glow.png" Id="0"/>
-			<Spritesheet Path="costumes\bakers.apron.png" Id="1"/>
+			<Spritesheet Path="costumes\chandlers_apron.glow.png" Id="0"/>
+			<Spritesheet Path="costumes\chandlers_apron.png" Id="1"/>
 		</Spritesheets>
 		<Layers>
 			<Layer Name="glow" Id="0" SpritesheetId="0"/>

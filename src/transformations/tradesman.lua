@@ -12,14 +12,14 @@ local tradesman = {
   animations = {
     tradesman = Isaac.GetCostumeIdByPath("gfx/characters/tradesman.anm2"),
     front = {
-      butcher = Isaac.GetCostumeIdByPath("gfx/characters/butchers.apron.anm2"),
-      baker = Isaac.GetCostumeIdByPath("gfx/characters/bakers.apron.anm2"),
-      chandler = Isaac.GetCostumeIdByPath("gfx/characters/chandlers.apron.anm2"),
+      butcher = Isaac.GetCostumeIdByPath("gfx/characters/butchers_apron.anm2"),
+      baker = Isaac.GetCostumeIdByPath("gfx/characters/bakers_apron.anm2"),
+      chandler = Isaac.GetCostumeIdByPath("gfx/characters/chandlers_apron.anm2"),
     },
     back = {
-      butcher = Isaac.GetCostumeIdByPath("gfx/characters/butchers.apron.back.anm2"),
-      baker = Isaac.GetCostumeIdByPath("gfx/characters/bakers.apron.back.anm2"),
-      chandler = Isaac.GetCostumeIdByPath("gfx/characters/chandlers.apron.back.anm2"),
+      butcher = Isaac.GetCostumeIdByPath("gfx/characters/butchers_apron.back.anm2"),
+      baker = Isaac.GetCostumeIdByPath("gfx/characters/bakers_apron.back.anm2"),
+      chandler = Isaac.GetCostumeIdByPath("gfx/characters/chandlers_apron.back.anm2"),
     }
   }
 }

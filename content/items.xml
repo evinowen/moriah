@@ -1,15 +1,15 @@
 <items gfxroot="gfx/items/" version="1">
   <!-- Baker's Apron -->
-  <passive name="Baker's Apron" description="Bake me a cake as fast as you can" gfx="bakers.apron.png" cache="weapon flying" tag="tradesmen" />
+  <passive name="Baker's Apron" description="Bake me a cake as fast as you can" gfx="bakers_apron.png" cache="weapon flying" tag="tradesmen" />
 
   <!-- Bow Tie -->
   <passive id="1" name="Bow Tie" description="HP up + you feel charming" gfx="bowtie.png" hearts="2" maxhearts="2" />
 
   <!-- Butcher's Apron -->
-  <passive name="Butcher's Apron" description="How could you be so mean?" gfx="butchers.apron.png" cache="weapon flying" tag="tradesmen" />
+  <passive name="Butcher's Apron" description="How could you be so mean?" gfx="butchers_apron.png" cache="weapon flying" tag="tradesmen" />
 
   <!-- Chandler's Apron -->
-  <passive name="Chandler's Apron" description="Jack be nimble, Jack be quick" gfx="chandlers.apron.png" cache="weapon flying" tag="tradesmen"/>
+  <passive name="Chandler's Apron" description="Jack be nimble, Jack be quick" gfx="chandlers_apron.png" cache="weapon flying" tag="tradesmen"/>
 
   <!-- Coffee Bean -->
   <passive name="Coffee Bean" description="Speed Up" gfx="coffee_bean.png" cache="speed" tags="poop" />
