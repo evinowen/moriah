@@ -1,5 +1,5 @@
 ### **OLD MAID**
-![Old Maid](/resources/gfx/items/collectibles/old_maid.png "Old Maid")
+![Old Maid](/content/gfx/ui_cardfront.big.old_maid.png "Old Maid")
 
 **Effects**
 - Exchanges the value of the pickups on the floor of the room for damage dealt to the enemies within it.

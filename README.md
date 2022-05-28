@@ -329,7 +329,7 @@ Currently Moriah implements one additional card, the "Old Maid".
 See the Binding of Isaac wiki for more details about this collectible type:
 https://bindingofisaacrebirth.fandom.com/wiki/Cards_and_Runes
 ### **OLD MAID**
-![Old Maid](/resources/gfx/items/collectibles/old_maid.png "Old Maid")
+![Old Maid](/content/gfx/ui_cardfront.big.old_maid.png "Old Maid")
 
 **Effects**
 - Exchanges the value of the pickups on the floor of the room for damage dealt to the enemies within it.
