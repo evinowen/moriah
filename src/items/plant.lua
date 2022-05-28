@@ -47,7 +47,8 @@ function plant.familiar_update(data, familiar)
       entity = familiar,
       water = 0.0,
       stomach = 0.0,
-      stage = -1
+      stage = -1,
+      tick = 0
     }
   else
     local sprite = familiar:GetSprite()
@@ -71,9 +72,23 @@ function plant.familiar_update(data, familiar)
       end
     elseif stage == 3 then
       if data.pots[tag][pot_key].stomach > 0 then
-        sprite:Play("DripperDrip")
-        data.pots[tag][pot_key].stomach = data.pots[tag][pot_key].stomach - 0.02
-        Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.PLAYER_CREEP_HOLYWATER_TRAIL, 0, familiar.Position, Vector.Zero, familiar)
+        if data.pots[tag][pot_key].tick == nil then
+          data.pots[tag][pot_key].tick = 0
+        end
+        if data.pots[tag][pot_key].tick > 0 then
+          data.pots[tag][pot_key].tick = data.pots[tag][pot_key].tick - 1
+        else
+          data.pots[tag][pot_key].tick = 3
+          sprite:Play("DripperDrip")
+          data.pots[tag][pot_key].stomach = data.pots[tag][pot_key].stomach - 0.1
+          local effect = Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.PLAYER_CREEP_HOLYWATER_TRAIL, 0, familiar.Position, Vector.Zero, familiar):ToEffect()
+
+          local color = Color(1, 1, 1, 1, 0, 0, 0)
+          color:SetColorize(0.6, 0.9, 1, 1)
+
+          effect:SetColor(color, -1, 1, false, false)
+          effect:Update()
+        end
       else
         sprite:Play("Dripper")
         data.pots[tag][pot_key].stomach = 0
@@ -150,6 +165,24 @@ function plant.pre_projectile_collision(data, projectile, collider)
         player:AddBlueFlies(1, familiar.Position, familiar)
       end
     elseif data.pots[tag][pot_key].stage == 3 then
+      local spill = (data.pots[tag][pot_key].stomach - 30) / 10
+      if spill > 0 then
+        support.print("full! "..data.pots[tag][pot_key].stomach)
+      end
+
+      while spill > 0 do
+        spill = spill - 1
+
+        local entity = Isaac.Spawn(EntityType.ENTITY_TEAR, TearVariant.MYSTERIOUS, 0, familiar.Position, Vector.One:Rotated(Random() % 360), familiar)
+        local tear = entity:ToTear()
+
+        local color = Color(1, 1, 1, 1, 0, 0, 0)
+        color:SetColorize(0.6, 0.9, 1, 1)
+
+        tear:SetColor(color, -1, 1, false, false)
+        tear.Scale = 0.5
+        tear.FallingAcceleration = 0.25
+      end
     end
   end
 
