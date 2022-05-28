@@ -1,0 +1,9 @@
+### **OLD MAID**
+![Old Maid](/resources/gfx/items/collectibles/old_maid.png "Old Maid")
+
+**Effects**
+- Exchanges the value of the pickups on the floor of the room for damage dealt to the enemies within it.
+  - Every pickup on the floor is exchanged for 5 damage for each cent of value.
+  - Pickups are valued based on the same rules as the Shop:
+    https://bindingofisaacrebirth.fandom.com/wiki/Shop
+- If held, the Old Maid will provide important reminders as Isaac moves between rooms.

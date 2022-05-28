@@ -15,3 +15,5 @@ Treasure Room
 
 **Effects**
 - Upon use inflates a Helium Balloon that follows Isaac.
+- While Isaac holds three Helium Balloons, grants flight.
+- If Isaac takes damage while holding a Helium Balloon, the Helium Balloon will pop and prevent Isaac from taking the damage.

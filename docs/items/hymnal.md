@@ -1,7 +1,7 @@
 ### **HYMNAL**
 ![Hymnal](/resources/gfx/items/collectibles/hymnal.png "Hymnal")
 
-> ""
+> "Bored again Christian"
 
 **Item Pool**
 
