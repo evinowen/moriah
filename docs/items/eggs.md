@@ -1,4 +1,4 @@
-### **EGGS**
+#### **EGGS**
 ![Eggs](/resources/gfx/items/collectibles/eggs.png "Eggs")
 
 > "6-Pack!"
@@ -21,3 +21,5 @@ Treasure Room
   - Throwing an Egg will remove one egg from the Egg Carton.
     - When all six Eggs have been thrown, Isaac will be left with an empty Egg Carton.
 - Upon use when the Egg Carton is empty, Isaac will eat the Egg Carton and recover one red heart.
+
+![Eggs](/gifs/eggs.gif "Eggs")

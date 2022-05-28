@@ -1,4 +1,4 @@
-### **OLD MAID**
+#### **OLD MAID**
 ![Old Maid](/content/gfx/ui_cardfront.big.old_maid.png "Old Maid")
 
 **Effects**
@@ -7,3 +7,5 @@
   - Pickups are valued based on the same rules as the Shop:
     https://bindingofisaacrebirth.fandom.com/wiki/Shop
 - If held, the Old Maid will provide important reminders as Isaac moves between rooms.
+
+![Old Maid](/gifs/old_maid.gif "Old Maid")

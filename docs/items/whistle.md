@@ -1,4 +1,4 @@
-### **WHISTLE**
+#### **WHISTLE**
 ![Whistle](/resources/gfx/items/collectibles/whistle.png "Whistle")
 
 > "Rock you like a Whirlwind"
@@ -23,3 +23,5 @@ Treasure Room
 - When summoned, the Whirlwind enters the screen from the left and continues across it horizontally until it exits on the right.
 - When the Whirlwind collides with an enemy, deals 40 damage.
 - When the Whirlwind collides with a player, teleports player to a random room.
+
+![Whistle](/gifs/whistle.gif "Whistle")

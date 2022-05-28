@@ -1,4 +1,4 @@
-### **BOW TIE**
+#### **BOW TIE**
 ![Bow Tie](/resources/gfx/items/collectibles/bowtie.png "Bow Tie")
 
 > "HP up + you feel charming"
@@ -16,3 +16,5 @@ Treasure Room
 **Effects**
 - Adds one Red Heart Container.
 - Adds a 10% chance to shoot a Charm tear.
+
+![Bow Tie](/gifs/bowtie.gif "Bow Tie")
