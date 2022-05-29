@@ -56,7 +56,11 @@ function tissues.fire(data, tear)
   local entity = tear.SpawnerEntity
   local player = entity:ToPlayer()
 
-  if player and player:HasTrinket(tissues_id, true) then
+  if not player then
+    return
+  end
+
+  if player:HasTrinket(tissues_id, true) then
     tear:Remove()
 
     local tag = support.tag(player)
@@ -76,6 +80,7 @@ function tissues.pre_entity_spawn(data, type, variant, subtype, position, veloci
   if type ~= EntityType.ENTITY_EFFECT then
     return
   end
+
   if not support.contains(tissues.creep, variant) then
     return
   end
@@ -114,13 +119,21 @@ function tissues.post_update(data)
 
   tissues.tick = tissues.tick_length
 
+  local players = {}
   local player_count = Game():GetNumPlayers()
 
   for i = 0, player_count do
-    local objects = {}
     local player = Game():GetPlayer(i)
 
-    for _, effect in pairs(tissues.effects.objects) do
+    if player:HasTrinket(tissues_id, true) then
+      table.insert(players, player)
+    end
+  end
+
+  for _, player in ipairs(players) do
+    local objects = {}
+
+    for _, effect in ipairs(tissues.effects.objects) do
       if (player.Position - effect.Position):LengthSquared() <= tissues.tissue_reach_squared then
         effect:Kill()
       else
