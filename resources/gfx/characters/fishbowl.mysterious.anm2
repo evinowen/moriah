@@ -3,7 +3,7 @@
 	<Content>
 		<Spritesheets>
 			<Spritesheet Path="costumes\Character_001_Isaac.png" Id="0"/>
-			<Spritesheet Path="costumes\fishbowl.png" Id="1"/>
+			<Spritesheet Path="costumes\fishbowl.mysterious.png" Id="1"/>
 		</Spritesheets>
 		<Layers>
 			<Layer Name="body" Id="0" SpritesheetId="0"/>
