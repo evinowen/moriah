@@ -26,7 +26,6 @@ function fishbowl.evaluate_cache(data, player, flag)
     if not player:HasCollectible(fishbowl_id) then
       return
     end
-    support.print("fishbowl ----------------------------")
 
     player:TryRemoveNullCostume(fishbowl.animations.empty)
     player:TryRemoveNullCostume(fishbowl.animations.black)
@@ -39,7 +38,6 @@ function fishbowl.evaluate_cache(data, player, flag)
     player:TryRemoveNullCostume(fishbowl.animations.mysterious)
 
     if player:HasCollectible(CollectibleType.COLLECTIBLE_BRIMSTONE) then
-      support.print("fishbowl brimstone")
       player:AddNullCostume(fishbowl.animations.brimstone)
     elseif player:HasCollectible(CollectibleType.COLLECTIBLE_CONTINUUM)
     or player:HasCollectible(CollectibleType.COLLECTIBLE_DEAD_DOVE)
@@ -51,33 +49,24 @@ function fishbowl.evaluate_cache(data, player, flag)
     or player:HasCollectible(CollectibleType.COLLECTIBLE_TECHNOLOGY)
     or player:HasCollectible(CollectibleType.COLLECTIBLE_TECH_X)
     or player:HasCollectible(CollectibleType.COLLECTIBLE_TINY_PLANET) then
-      support.print("fishbowl empty")
       player:AddNullCostume(fishbowl.animations.empty)
     elseif player:HasCollectible(CollectibleType.COLLECTIBLE_MYSTERIOUS_LIQUID) then
-      support.print("fishbowl mysterious")
       player:AddNullCostume(fishbowl.animations.mysterious)
     elseif player:HasCollectible(CollectibleType.COLLECTIBLE_BALL_OF_TAR)
     or player:HasCollectible(CollectibleType.COLLECTIBLE_DARK_MATTER)
     or player:HasCollectible(CollectibleType.COLLECTIBLE_EXPLOSIVO)
     or player:HasCollectible(CollectibleType.COLLECTIBLE_EVES_MASCARA) then
-      support.print("fishbowl black")
       player:AddNullCostume(fishbowl.animations.black)
     elseif player:HasCollectible(CollectibleType.COLLECTIBLE_SCORPIO) then
-      support.print("fishbowl green")
       player:AddNullCostume(fishbowl.animations.green)
     elseif player:HasCollectible(CollectibleType.COLLECTIBLE_SOY_MILK) then
-      support.print("fishbowl milk")
       player:AddNullCostume(fishbowl.animations.milk)
     elseif player:HasCollectible(CollectibleType.COLLECTIBLE_HAEMOLACRIA)
     or player:HasCollectible(CollectibleType.COLLECTIBLE_BLOOD_OF_THE_MARTYR) then
-      support.print("fishbowl blood")
       player:AddNullCostume(fishbowl.animations.blood)
     else
-      support.print("fishbowl blue")
       player:AddNullCostume(fishbowl.animations.blue)
     end
-    -- firemind?
-    -- HeadOfTheKeeper
   end
 end
 
@@ -110,7 +99,6 @@ function fishbowl.pre_projectile_collision(data, projectile, collider)
   local player = collider:ToPlayer()
 
   if player and player:HasCollectible(fishbowl_id) then
-    support.print('boing!')
     projectile.Velocity = projectile.Velocity * -0.9
     return true
   end
