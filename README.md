@@ -1,4 +1,6 @@
-﻿moriah
+﻿![Moriah](/docs/BoIR.Moriah.Title.png "Moriah")
+
+moriah
 ======
 A mod for The Binding of Isaac: Repentance
 
