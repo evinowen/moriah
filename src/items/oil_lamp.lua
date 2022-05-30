@@ -108,26 +108,26 @@ function oil_lamp.familiar_update(data, familiar)
         familiar:PickEnemyTarget(2048, 0, 1 | 16, Vector.One, 180)
         if familiar.Target then
           local direction = (familiar.Target.Position - familiar.Position):Normalized()
-          -- if data.oil_lamps[tag][lamp_key].fire == oil_lamp.fire_type.RED then
-          --   local entity = Isaac.Spawn(EntityType.ENTITY_TEAR, TearVariant.BLOOD, 0, familiar.Position, direction * 3, familiar)
+          if data.oil_lamps[tag][lamp_key].fire == oil_lamp.fire_type.RED then
+            local entity = Isaac.Spawn(EntityType.ENTITY_TEAR, TearVariant.BLOOD, 0, familiar.Position, direction * 3, familiar)
 
-          --   local tear = entity:ToTear()
-          --   tear.Scale = 0.5
-          --   tear.Height = -10
-          --   tear.FallingSpeed = 0
-          --   tear.FallingAcceleration = -0.1
-          -- elseif data.oil_lamps[tag][lamp_key].fire == oil_lamp.fire_type.PURPLE then
-          --   local entity = Isaac.Spawn(EntityType.ENTITY_TEAR, TearVariant.BLUE, 0, familiar.Position, direction * 3, familiar)
+            local tear = entity:ToTear()
+            tear.Scale = 0.5
+            tear.Height = -10
+            tear.FallingSpeed = 0
+            tear.FallingAcceleration = -0.1
+          elseif data.oil_lamps[tag][lamp_key].fire == oil_lamp.fire_type.PURPLE then
+            local entity = Isaac.Spawn(EntityType.ENTITY_TEAR, TearVariant.BLUE, 0, familiar.Position, direction * 3, familiar)
 
-          --   local tear = entity:ToTear()
-          --   tear.Scale = 0.5
-          --   tear.Height = -10
-          --   tear.FallingSpeed = 0
-          --   tear.FallingAcceleration = -0.1
+            local tear = entity:ToTear()
+            tear.Scale = 0.5
+            tear.Height = -10
+            tear.FallingSpeed = 0
+            tear.FallingAcceleration = -0.1
 
-          --   tear:SetColor(Color(0.5, 0, 0.75, 1, 0.1, 0.1, 0.1), -1, 1, false, false)
-          --   tear:AddTearFlags(TearFlags.TEAR_HOMING)
-          -- end
+            tear:SetColor(Color(0.5, 0, 0.75, 1, 0.1, 0.1, 0.1), -1, 1, false, false)
+            tear:AddTearFlags(TearFlags.TEAR_HOMING)
+          end
         end
 
         data.oil_lamps[tag][lamp_key].cooldown = oil_lamp.frames.cooldown
@@ -327,8 +327,10 @@ function oil_lamp.extinguish_lamp(data, familiar)
   local lamp_key = "f".. familiar.InitSeed
 
   data.oil_lamps[tag][lamp_key].fire = oil_lamp.fire_type.NONE
+
+  local sprite = familiar:GetSprite()
   sprite:Play("Empty")
 
   Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.POOF01, 0, familiar.Position, Vector.Zero, nil)
-  FXManager():Play(SoundEffect.SOUND_SUMMON_POOF)
+  SFXManager():Play(SoundEffect.SOUND_SUMMON_POOF)
 end
