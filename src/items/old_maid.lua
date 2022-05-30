@@ -5,11 +5,13 @@ local old_maid = {
   nags = {
     "Oh, it reeks of taste!",
     "My turn to ring the bells.",
+    "It's a run-by fruiting!",
     "I do need new glasses.",
     "I can hip-hop, be-bop.",
     "Oh, thank you dear.",
     "Don't fuss with me.",
     "I'll drown you, bastard.",
+    "Sorry to frighten dear",
   },
   value = {
     [PickupVariant.PICKUP_HEART] = 5,
