@@ -10,6 +10,7 @@
   <costume anm2path="fishbowl.green.anm2" priority="20" type="none" isFlying="true" hasSkinAlt="true" />
   <costume anm2path="fishbowl.milk.anm2" priority="20" type="none" isFlying="true" hasSkinAlt="true" />
   <costume anm2path="fishbowl.mysterious.anm2" priority="20" type="none" isFlying="true" hasSkinAlt="true" />
+  <costume anm2path="fishbowl.pennies.anm2" priority="20" type="none" isFlying="true" hasSkinAlt="true" />
 
   <costume id="2" anm2path="oven_mitt.anm2" type="trinket" priority="10" />
 

@@ -12,6 +12,7 @@ local fishbowl = {
     green = Isaac.GetCostumeIdByPath("gfx/characters/fishbowl.green.anm2"),
     milk = Isaac.GetCostumeIdByPath("gfx/characters/fishbowl.milk.anm2"),
     mysterious = Isaac.GetCostumeIdByPath("gfx/characters/fishbowl.mysterious.anm2"),
+    pennies = Isaac.GetCostumeIdByPath("gfx/characters/fishbowl.pennies.anm2"),
   }
 }
 
@@ -36,10 +37,14 @@ function fishbowl.evaluate_cache(data, player, flag)
     player:TryRemoveNullCostume(fishbowl.animations.green)
     player:TryRemoveNullCostume(fishbowl.animations.milk)
     player:TryRemoveNullCostume(fishbowl.animations.mysterious)
+    player:TryRemoveNullCostume(fishbowl.animations.pennies)
 
     if player:HasCollectible(CollectibleType.COLLECTIBLE_BRIMSTONE) then
       player:AddNullCostume(fishbowl.animations.brimstone)
-    elseif player:HasCollectible(CollectibleType.COLLECTIBLE_CONTINUUM)
+    elseif player:HasCollectible(CollectibleType.COLLECTIBLE_HEAD_OF_THE_KEEPER) then
+      player:AddNullCostume(fishbowl.animations.pennies)
+    elseif player:HasCollectible(CollectibleType.COLLECTIBLE_8_INCH_NAILS)
+    or player:HasCollectible(CollectibleType.COLLECTIBLE_CONTINUUM)
     or player:HasCollectible(CollectibleType.COLLECTIBLE_DEAD_DOVE)
     or player:HasCollectible(CollectibleType.COLLECTIBLE_DEAD_ONION)
     or player:HasCollectible(CollectibleType.COLLECTIBLE_FIRE_MIND)
@@ -86,12 +91,18 @@ function fishbowl.fire(data, tear)
     local color = tear:GetColor()
     tear:Remove()
 
-    local puddle_entity = Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.PLAYER_CREEP_HOLYWATER_TRAIL, 0, player.Position, Vector.Zero, player)
-    local puddle_effect = puddle_entity:ToEffect()
-    puddle_effect.Scale = damage / 5.0
+    if tear.Variant == TearVariant.TOOTH
+    or tear.Variant == TearVariant.SCHYTHE
+    or tear.Variant == TearVariant.NAIL
+    or tear.Variant == TearVariant.COIN then
+    else
+      local puddle_entity = Isaac.Spawn(EntityType.ENTITY_EFFECT, EffectVariant.PLAYER_CREEP_HOLYWATER_TRAIL, 0, player.Position, Vector.Zero, player)
+      local puddle_effect = puddle_entity:ToEffect()
+      puddle_effect.Scale = damage / 5.0
 
-    puddle_effect:SetColor(color, -1, 1, false, false)
-    puddle_effect:Update()
+      puddle_effect:SetColor(color, -1, 1, false, false)
+      puddle_effect:Update()
+    end
   end
 end
 
