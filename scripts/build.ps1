@@ -11,6 +11,14 @@ $build_path = Resolve-Path "$root_path\build"
 New-Item -Force "$build_path\main.lua" -ItemType File
 $main_path = Resolve-Path "$build_path\main.lua"
 
+function Include-Raw-File {
+  param (
+    $path
+  )
+
+  Get-Content -Encoding utf8  "$root_path\$path" | Out-File -Encoding utf8 "$build_path\$path"
+}
+
 function Include-Raw-Directory {
   param (
     $path
@@ -24,6 +32,7 @@ function Include-Raw-Directory {
   }
 }
 
+Include-Raw-File -path "metadata.xml"
 Include-Raw-Directory -path "content"
 Include-Raw-Directory -path "resources"
 
