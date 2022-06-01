@@ -102,6 +102,10 @@ function Moriah:reset()
     table.insert(players, Game():GetPlayer(i))
   end
 
+  if Moriah.Data == nil then
+    return
+  end
+
   for _, actor in pairs(actors) do
     if actor.reset_player ~= nil then
       for _, player in pairs(players) do
