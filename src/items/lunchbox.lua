@@ -5,7 +5,6 @@ local packed_lunchbox_entity_id = Isaac.GetEntityVariantByName("Packed Lunchbox"
 local lunchbox = {}
 
 function lunchbox.stage(data)
-  support.print("lunchbox stage")
   data.lunchboxes = {}
   data.lunchbox_total = {}
   data.lunchbox_held = {}
@@ -17,7 +16,6 @@ end
 function lunchbox.initalize_player(data, player)
   local tag = support.tag(player)
 
-  support.print("lunchbox "..tag.." init")
   data.lunchboxes[tag] = {}
   data.lunchbox_total[tag] = 0
   data.lunchbox_release[tag] = 0
@@ -26,7 +24,6 @@ end
 function lunchbox.reset_player(data, player)
   local tag = support.tag(player)
 
-  support.print("lunchbox "..tag.." reset")
   data.lunchbox_held[tag] = false
   data.lunchbox_filled[tag] = false
   data.lunchbox_opened[tag] = false
@@ -120,7 +117,6 @@ end
 
 function lunchbox.evaluate_cache(data, player, flag)
   if flag == CacheFlag.CACHE_FAMILIARS then
-    support.print("CACHE_FAMILIARS")
 
     local tag = support.tag(player)
 
@@ -165,5 +161,3 @@ function lunchbox.familiar_update(data, familiar)
     -- pickup.Charge = lunchbox.Charge
   end
 end
-
-support.print("Loaded moriah.lunchbox")

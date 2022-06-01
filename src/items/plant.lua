@@ -166,10 +166,6 @@ function plant.pre_projectile_collision(data, projectile, collider)
       end
     elseif data.pots[tag][pot_key].stage == 3 then
       local spill = (data.pots[tag][pot_key].stomach - 30) / 10
-      if spill > 0 then
-        support.print("full! "..data.pots[tag][pot_key].stomach)
-      end
-
       while spill > 0 do
         spill = spill - 1
 

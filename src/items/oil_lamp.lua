@@ -302,22 +302,15 @@ function oil_lamp.light_lamp(data, familiar, variant)
   local sprite = familiar:GetSprite()
 
   if variant == oil_lamp.fire_type.YELLOW then
-    support.print(" (Yellow Fire)")
     sprite:Play("Yellow")
   elseif variant == oil_lamp.fire_type.RED then
-    support.print(" (Red Fire)")
     sprite:Play("Red")
   elseif variant == oil_lamp.fire_type.BLUE then
-    support.print(" (Blue Fire)")
     sprite:Play("Blue")
   elseif variant == oil_lamp.fire_type.PURPLE then
-    support.print(" (Purple Fire)")
     sprite:Play("Purple")
   elseif variant == oil_lamp.fire_type.WHITE then
-    support.print(" (White Fire)")
     sprite:Play("White")
-  else
-    support.print(" (Unknown Fire)")
   end
 end
 

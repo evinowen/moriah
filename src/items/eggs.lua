@@ -52,7 +52,6 @@ function eggs.use_item(data, item_id, _, player)
     elseif item_id == eggs_1_id then
       data.eggs_held[tag] = 1
     elseif item_id == eggs_0_id then
-      support.print("Egg Carton!")
       player:RemoveCollectible(eggs_0_id)
       player:AddHearts(2)
 
@@ -92,7 +91,6 @@ function eggs.render_player(data, player)
   or Input.IsActionPressed(ButtonAction.ACTION_SHOOTRIGHT, player.ControllerIndex)
   or Input.IsActionPressed(ButtonAction.ACTION_SHOOTUP, player.ControllerIndex)
   or Input.IsActionPressed(ButtonAction.ACTION_SHOOTDOWN, player.ControllerIndex) then
-    support.print("Throw Egg")
     data.eggs_held[tag] = -1
 
     local fire_egg = false

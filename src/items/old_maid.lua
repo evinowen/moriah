@@ -168,7 +168,6 @@ function old_maid.post_perfect_update(data, player)
       if entity_pickup.Variant == PickupVariant.PICKUP_COIN then
         entity_value = entity_pickup:GetCoinValue()
       elseif entity_pickup.Variant == PickupVariant.PICKUP_COLLECTIBLE or entity_pickup.Variant == PickupVariant.PICKUP_TRINKET then
-        support.print(" pedestal: "..entity_pickup.SubType.." "..entity_pickup.State)
         if entity_pickup.SubType > 0 then
           config = item_config:GetCollectible(entity_pickup.SubType)
           entity_value = config.ShopPrice
@@ -178,9 +177,6 @@ function old_maid.post_perfect_update(data, player)
           entity_pickup.State = 0
           entity_pickup:Update()
           entity_pickup:Render(Vector.Zero)
-
-          -- entity_pickup:Morph(EntityType.ENTITY_PICKUP, PickupVariant.PICKUP_COLLECTIBLE, 0)
-          -- entity_pickup:Update()
         end
       end
 
@@ -208,11 +204,9 @@ function old_maid.post_perfect_update(data, player)
   local damage = data.cleaning[tag].value * old_maid.damage_per_cent
 
   local entities = room:GetEntities()
-  support.print("found "..entities.Size.." entities")
   for i = 0, entities.Size - 1 do
     local entity = entities:Get(i)
     if entity:IsVulnerableEnemy() and entity.Type ~= EntityType.ENTITY_GREED then
-      support.print("hit entity "..entity.InitSeed.." w/ "..damage.." damage")
       entity:TakeDamage(damage, 0, EntityRef(player), 10)
     end
   end

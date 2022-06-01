@@ -114,5 +114,3 @@ function fishbowl.pre_projectile_collision(data, projectile, collider)
     return true
   end
 end
-
-support.print("Loaded moriah.fishbowl")

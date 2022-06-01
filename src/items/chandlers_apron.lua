@@ -32,7 +32,6 @@ end
 function chandlers_apron.reset_player(data, player)
   local tag = support.tag(player)
 
-  support.print("chandlers_apron.reset_player")
   data.chandlers[tag].scale = 0
   data.chandlers[tag].puddle = nil
 end
@@ -81,7 +80,6 @@ function chandlers_apron.gain_wax(data, player)
   local charge_secondary = player:GetActiveCharge(ActiveSlot.SLOT_SECONDARY) + player:GetBatteryCharge(ActiveSlot.SLOT_SECONDARY)
   if active_secondary > 0 then
     local item_config = Isaac.GetItemConfig():GetCollectible(active_secondary)
-    support.print("CT2 => "..item_config.ChargeType)
 
     if data.chandlers[tag].active_secondary ~= active_secondary then
       data.chandlers[tag].active_secondary = active_secondary
@@ -106,8 +104,6 @@ function chandlers_apron.gain_wax(data, player)
 
   data.chandlers[tag].wax = data.chandlers[tag].wax + (data.chandlers[tag].skill * wax)
   data.chandlers[tag].total = data.chandlers[tag].total + wax
-
-  support.print("wax!! "..wax.. " ("..data.chandlers[tag].wax..")")
 
   local fortune = nil
 

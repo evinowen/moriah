@@ -98,5 +98,3 @@ function support.check_familiar(player, familiar_variant_id, familiar_count, sou
 
   player:CheckFamiliar(familiar_variant_id, familiar_count, support.create_random_generator(), item_config)
 end
-
-support.print("Loaded moriah.support")

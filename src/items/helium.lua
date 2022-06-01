@@ -4,7 +4,6 @@ local balloon_id = Isaac.GetEntityVariantByName("Helium Balloon")
 local helium = {}
 
 function helium.stage(data)
-  support.print("helium stage")
   data.balloons = {}
   data.bouquets = {}
 end
@@ -12,7 +11,6 @@ end
 function helium.initalize_player(data, player)
   local tag = support.tag(player)
 
-  support.print("helium "..tag.." init")
   data.balloons[tag] = 0
   data.bouquets[tag] = {}
 end
@@ -24,9 +22,7 @@ function helium.use_item(data, item_id, _, player)
 
   local tag = support.tag(player)
 
-  support.print("helium add balloon!")
   data.balloons[tag] = data.balloons[tag] + 1
-  support.print("helium balloons == "..data.balloons[tag])
 
   player:AddCacheFlags(CacheFlag.CACHE_FAMILIARS)
   player:AddCacheFlags(CacheFlag.CACHE_FLYING)
@@ -38,7 +34,6 @@ function helium.evaluate_cache(data, player, flag)
   local tag = support.tag(player)
 
   if flag == CacheFlag.CACHE_FAMILIARS then
-    support.print("helium evaluate_cache balloons == "..data.balloons[tag])
     support.check_familiar(player, balloon_id, data.balloons[tag], helium_id)
   end
 
@@ -112,7 +107,6 @@ function helium.familiar_update(data, familiar)
     }
 
     for key, _ in pairs(data.bouquets[tag]) do
-      support.print("key "..key)
       data.bouquets[tag][key].top = bouquet_index
     end
   end

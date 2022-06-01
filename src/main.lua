@@ -29,7 +29,6 @@ function Moriah:Validate()
 end
 
 function Moriah:stage()
-  support.print("stage")
   Moriah.Data = {}
 
   for _, actor in pairs(actors) do
@@ -70,21 +69,17 @@ function Moriah:remix_arguments(arguments)
 end
 
 function Moriah:start(continue)
-  support.print("Start")
   Moriah:stage()
 
   if continue and Moriah:HasData() then
     support.print("Continue Game")
 
     local encoded = Moriah:LoadData()
-    support.print("Load Results: "..encoded)
     support.merge(Moriah.Data, json.decode(encoded))
   else
     support.print("New Game")
 
     Moriah:initalize()
-
-    support.print("Initalized: "..json.encode(Moriah.Data))
 
     Moriah:record()
   end
@@ -254,8 +249,5 @@ function Moriah:callback_template(name)
 end
 
 for _, method in ipairs(methods) do
-  support.print("AddCallback "..method.name)
   Moriah:AddCallback(method.flag, Moriah:callback_template(method.name))
 end
-
-support.print("Loaded moriah")
