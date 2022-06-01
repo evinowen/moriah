@@ -33,6 +33,7 @@ function Include-Raw-Directory {
 }
 
 Include-Raw-File -path "metadata.xml"
+Include-Raw-File -path "preview.png"
 Include-Raw-Directory -path "content"
 Include-Raw-Directory -path "resources"
 
