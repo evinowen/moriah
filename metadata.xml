@@ -11,23 +11,23 @@ In current total, the mod adds 13 passive/active collectibles, 2 trinkets, 1 car
 
 [h2]Catalog[/h2]
 [h3]Passive Items[/h3]
-[b]Bowtie[/b] - [i]"HP up + you feel charming"[/i] - Health and charm tears.
-[b]Coffee Bean[/b] - [i]"Speed Up"[/i] - Speed up!
-[b]Fishbowl[/b] - [i]"blub blub blub"[/i] - Trade tears for protection form projectiles.
+[b]Bowtie[/b] - [i]&quot;HP up + you feel charming&quot;[/i] - Health and charm tears.
+[b]Coffee Bean[/b] - [i]&quot;Speed Up&quot;[/i] - Speed up!
+[b]Fishbowl[/b] - [i]&quot;blub blub blub&quot;[/i] - Trade tears for protection form projectiles.
 
-[b]Oil Lamp[/b] - [i]"I've got the black lung, pop."[/i] - Familiar
-[b]Plant[/b] - [i]"plaaaaant"[/i] - Familiar
+[b]Oil Lamp[/b] - [i]&quot;I've got the black lung, pop.&quot;[/i] - Familiar
+[b]Plant[/b] - [i]&quot;plaaaaant&quot;[/i] - Familiar
 
-[b]Baker's Apron[/b] - [i]"Bake me a cake as fast as you can"[/i] - Deal damage for Damage.
-[b]Butcher's Apron[/b] - [i]"How could you be so mean?"[/i] - Heal yourself for Tears.
-[b]Chander's Apron[/b] - [i]"Jack be nimble, Jack be quick"[/i] - Charge active items for Shot Speed.
+[b]Baker's Apron[/b] - [i]&quot;Bake me a cake as fast as you can&quot;[/i] - Deal damage for Damage.
+[b]Butcher's Apron[/b] - [i]&quot;How could you be so mean?&quot;[/i] - Heal yourself for Tears.
+[b]Chander's Apron[/b] - [i]&quot;Jack be nimble, Jack be quick&quot;[/i] - Charge active items for Shot Speed.
 
 [h3]Active Items[/h3]
-[b]Eggs[/b] - [i]"6-Pack!"[/i] - Throw some eggs.
-[b]Helium[/b] - [i]"I be a wee little Leprechaun!"[/i] - Balloons can protect and give flight.
-[b]Hymnal[/b] - [i]"Bored again Christian"[/i] - Bore the entire room, temporary freeze.
-[b]Lunchbox[/b] - [i]"Stay Fresh!™"[/i] - Stash your stuff for later.
-[b]Whistle[/b] - [i]"Rock you like a Whirlwind"[/i] - Use the wind to get around.
+[b]Eggs[/b] - [i]&quot;6-Pack!&quot;[/i] - Throw some eggs.
+[b]Helium[/b] - [i]&quot;I be a wee little Leprechaun!&quot;[/i] - Balloons can protect and give flight.
+[b]Hymnal[/b] - [i]&quot;Bored again Christian&quot;[/i] - Bore the entire room, temporary freeze.
+[b]Lunchbox[/b] - [i]&quot;Stay Fresh!™&quot;[/i] - Stash your stuff for later.
+[b]Whistle[/b] - [i]&quot;Rock you like a Whirlwind&quot;[/i] - Use the wind to get around.
 
 [h3]Trinkets[/h3]
 [b]Oven Mitt[/b] - Walk through fire.
@@ -36,7 +36,7 @@ In current total, the mod adds 13 passive/active collectibles, 2 trinkets, 1 car
 [h3]Cards[/h3]
 [b]Old Maid[/b] - Keeps what is found, deals equivalent damage.
 </description>
-    <version>1.0</version>
+    <version>1.1</version>
     <visibility>Public</visibility>
     <tag id="Lua"/>
     <tag id="Items"/>
