@@ -1,5 +1,48 @@
 <ItemPools>
+	<Pool Name="treasure">
+		<Item Name="Baker's Apron" Weight="1" DecreaseBy="1" RemoveOn="0.1" />
+		<Item Name="Bow Tie" Weight="1" DecreaseBy="1" RemoveOn="0.1" />
+		<Item Name="Butcher's Apron" Weight="1" DecreaseBy="1" RemoveOn="0.1" />
+		<Item Name="Chandler's Apron" Weight="1" DecreaseBy="1" RemoveOn="0.1" />
+		<Item Name="Coffee Bean" Weight="1" DecreaseBy="1" RemoveOn="0.1" />
+		<Item Name="Eggs" Weight="1" DecreaseBy="1" RemoveOn="0.1" />
+		<Item Name="Helium" Weight="1" DecreaseBy="1" RemoveOn="0.1" />
+		<Item Name="Hymnal" Weight="1" DecreaseBy="1" RemoveOn="0.1" />
+		<Item Name="Lunchbox" Weight="1" DecreaseBy="1" RemoveOn="0.1" />
+		<Item Name="Plant" Weight="1" DecreaseBy="1" RemoveOn="0.1" />
+		<Item Name="Whistle" Weight="1" DecreaseBy="1" RemoveOn="0.1" />
+	</Pool>
+	<Pool Name="beggar">
+		<Item Name="Coffee Bean" Weight="1" DecreaseBy="1" RemoveOn="0.1" />
+		<Item Name="Eggs" Weight="1" DecreaseBy="1" RemoveOn="0.1" />
+	</Pool>
+	<Pool Name="library">
+		<Item Name="Hymnal" Weight="1" DecreaseBy="1" RemoveOn="0.1" />
+	</Pool>
 	<Pool Name="secret">
+		<Item Name="Fishbowl" Weight="1" DecreaseBy="1" RemoveOn="0.1" />
 		<Item Name="Lunchbox" Weight="1" DecreaseBy="0.1"/>
+		<Item Name="Oil Lamp" Weight="1" DecreaseBy="1" RemoveOn="0.1" />
+	</Pool>
+	<Pool Name="greedTreasure">
+		<Item Name="Baker's Apron" Weight="1" DecreaseBy="1" RemoveOn="0.1" />
+		<Item Name="Bow Tie" Weight="1" DecreaseBy="1" RemoveOn="0.1" />
+		<Item Name="Butcher's Apron" Weight="1" DecreaseBy="1" RemoveOn="0.1" />
+		<Item Name="Chandler's Apron" Weight="1" DecreaseBy="1" RemoveOn="0.1" />
+		<Item Name="Coffee Bean" Weight="1" DecreaseBy="1" RemoveOn="0.1" />
+		<Item Name="Eggs" Weight="1" DecreaseBy="1" RemoveOn="0.1" />
+		<Item Name="Helium" Weight="1" DecreaseBy="1" RemoveOn="0.1" />
+		<Item Name="Hymnal" Weight="1" DecreaseBy="1" RemoveOn="0.1" />
+		<Item Name="Lunchbox" Weight="1" DecreaseBy="1" RemoveOn="0.1" />
+		<Item Name="Plant" Weight="1" DecreaseBy="1" RemoveOn="0.1" />
+		<Item Name="Whistle" Weight="1" DecreaseBy="1" RemoveOn="0.1" />
+	</Pool>
+	<Pool Name="greedLibrary">
+		<Item Name="Hymnal" Weight="1" DecreaseBy="1" RemoveOn="0.1" />
+	</Pool>
+	<Pool Name="greedSecret">
+		<Item Name="Fishbowl" Weight="1" DecreaseBy="1" RemoveOn="0.1" />
+		<Item Name="Lunchbox" Weight="1" DecreaseBy="0.1"/>
+		<Item Name="Oil Lamp" Weight="1" DecreaseBy="1" RemoveOn="0.1" />
 	</Pool>
 </ItemPools>
