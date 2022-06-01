@@ -1,9 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata>
-    <name>moriah</name>
+    <name>Moriah</name>
     <directory>moriah</directory>
-    <id>0</id>
-    <description></description>
+    <id>2815023605</id>
+    <description>
+[h1]Moriah[/h1]
+A simple mod for the Binding of Isaac: Rebirth, that adds a handful of simple items.
+
+In current total, the mod adds 13 passive/active collectibles, 2 trinkets, 1 card, and a transformation.
+
+[h2]Catalog[/h2]
+[h3]Passive Items[/h3]
+[b]Bowtie[/b] - [i]"HP up + you feel charming"[/i] - Health and charm tears.
+[b]Coffee Bean[/b] - [i]"Speed Up"[/i] - Speed up!
+[b]Fishbowl[/b] - [i]"blub blub blub"[/i] - Trade tears for protection form projectiles.
+
+[b]Oil Lamp[/b] - [i]"I've got the black lung, pop."[/i] - Familiar
+[b]Plant[/b] - [i]"plaaaaant"[/i] - Familiar
+
+[b]Baker's Apron[/b] - [i]"Bake me a cake as fast as you can"[/i] - Deal damage for Damage.
+[b]Butcher's Apron[/b] - [i]"How could you be so mean?"[/i] - Heal yourself for Tears.
+[b]Chander's Apron[/b] - [i]"Jack be nimble, Jack be quick"[/i] - Charge active items for Shot Speed.
+
+[h3]Active Items[/h3]
+[b]Eggs[/b] - [i]"6-Pack!"[/i] - Throw some eggs.
+[b]Helium[/b] - [i]"I be a wee little Leprechaun!"[/i] - Balloons can protect and give flight.
+[b]Hymnal[/b] - [i]"Bored again Christian"[/i] - Bore the entire room, temporary freeze.
+[b]Lunchbox[/b] - [i]"Stay Fresh!™"[/i] - Stash your stuff for later.
+[b]Whistle[/b] - [i]"Rock you like a Whirlwind"[/i] - Use the wind to get around.
+
+[h3]Trinkets[/h3]
+[b]Oven Mitt[/b] - Walk through fire.
+[b]Tissues[/b] - Dries tears, but also cleans the floor.
+
+[h3]Cards[/h3]
+[b]Old Maid[/b] - Keeps what is found, deals equivalent damage.
+</description>
     <version>1.0</version>
     <visibility>Public</visibility>
+    <tag id="Lua"/>
+    <tag id="Items"/>
+    <tag id="Active Items"/>
+    <tag id="Trinkets"/>
+    <tag id="Cards"/>
+    <tag id="Pickups"/>
+    <tag id="Familiars"/>
 </metadata>
