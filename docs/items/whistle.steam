@@ -1,0 +1,19 @@
+﻿[quote]"Rock you like a Whirlwind"[/quote]
+
+[h1]Recharge Time[/h1]
+3 rooms
+
+[h1]Item Pool[/h1]
+Treasure Room
+
+[h1]Quality[/h1]
+★★★★☆
+
+[h1]Effects[/h1]
+[list]
+ [*] Upon use, play the Whistle.
+ [*] Once played, will reveal the floor dungeon if it is in the current room, otherwise the Whirlwind is summoned.
+ [*] When summoned, the Whirlwind enters the screen from the left and continues across it horizontally until it exits on the right.
+ [*] When the Whirlwind collides with an enemy, deals 40 damage.
+ [*] When the Whirlwind collides with a player, teleports player to a random room.
+[/list]

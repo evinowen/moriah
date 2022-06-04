@@ -1,4 +1,4 @@
-#### **BOW TIE**
+﻿#### **BOW TIE**
 ![Bow Tie](/resources/gfx/items/collectibles/bowtie.png "Bow Tie")
 
 > "HP up + you feel charming"

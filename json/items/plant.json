@@ -1,0 +1,17 @@
+{
+  "name": "Plant",
+  "type": "passive",
+  "portrait": "/resources/gfx/items/collectibles/plant.png",
+  "quote": "plaaaaant",
+  "pools": [
+    "Treasure Room"
+  ],
+  "quality": 3,
+  "effects": [
+    "Spawns a potted Plant familiar, which in its initial stage has not sprouted.",
+    "The potted Plant will absorb enemy projectiles when they collide with the potted plant.",
+    "After the Plant absorbs five projectiles, it will sprout.",
+    "After the Plant absorbs ten projectiles, it will become fully grown."
+  ],
+  "gif": "/gifs/plant.gif"
+}

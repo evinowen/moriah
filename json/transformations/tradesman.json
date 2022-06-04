@@ -1,0 +1,12 @@
+{
+  "name": "Tradesman",
+  "type": "transformation",
+  "quote": "Butcher, Baker, Candlestick Maker",
+  "description": "Collect all three of the tradesman aprons to become the \"Tradesman\".",
+  "effects": [
+    "Grants flight.",
+    "Spawns a Butcher's Cleaver familiar that orbits Isaac, similar to [Sacrificial Dagger](https://bindingofisaacrebirth.fandom.com/wiki/Sacrificial_Dagger)",
+    "Isaac's tears are now thrown from a candle on the top of his head, and inflict burn on enemies."
+  ],
+  "gif": "/gifs/tradesman.gif"
+}

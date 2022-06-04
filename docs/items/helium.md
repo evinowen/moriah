@@ -1,7 +1,11 @@
-#### **HELIUM**
+﻿#### **HELIUM**
 ![Helium](/resources/gfx/items/collectibles/helium.png "Helium")
 
 > "I be a wee little Leprechaun!"
+
+**Recharge Time**
+
+360 seconds
 
 **Item Pool**
 

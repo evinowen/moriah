@@ -1,0 +1,19 @@
+{
+  "name": "Hymnal",
+  "type": "active",
+  "charge": {
+    "type": "room",
+    "quantity": "6"
+  },
+  "portrait": "/resources/gfx/items/collectibles/hymnal.png",
+  "quote": "Bored again Christian",
+  "pools": [
+    "Treasure Room",
+    "Library"
+  ],
+  "quality": 3,
+  "effects": [
+    "Upon use Isaac sings a Hymn that freezes all Enemies in the room."
+  ],
+  "gif": "/gifs/hymnal.gif"
+}

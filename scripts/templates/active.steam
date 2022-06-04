@@ -1,0 +1,15 @@
+[quote]"%%%QUOTE%%%"[/quote]
+
+[h1]Recharge Time[/h1]
+%%%CHARGE%%%
+
+[h1]Item Pool[/h1]
+%%%POOLS%%%
+
+[h1]Quality[/h1]
+%%%QUALITY%%%
+
+[h1]Effects[/h1]
+[list]
+%%%EFFECTS%%%
+[/list]

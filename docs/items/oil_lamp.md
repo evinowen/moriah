@@ -1,4 +1,4 @@
-#### **OIL LAMP**
+﻿#### **OIL LAMP**
 ![Oil Lamp](/resources/gfx/items/collectibles/oil_lamp.png "Oil Lamp")
 
 > "I've got the black lung, pop."
@@ -15,7 +15,7 @@ Secret Room
 
 **Effects**
 - Spawns a floating Oil Lamp familiar that can be fired towards enemies as a projectile.
-  - Oil Lamp is fired directly from where it is located in the chain of familiars behind Isaac, similar to [Bob's Brain](https://bindingofisaacrebirth.fandom.com/wiki/Bob%27s_Brain).
-- If an Oil Lamp makes contact with a [Fire Place](https://bindingofisaacrebirth.fandom.com/wiki/Fire_Places), the Oil Lamp is lit and assumes the same fire variation as the Fire Place it made contact with.
+- Oil Lamp is fired directly from where it is located in the chain of familiars behind Isaac, similar to Bob's Brain. (https://bindingofisaacrebirth.fandom.com/wiki/Bob%27s_Brain)
+- If an Oil Lamp makes contact with a Fire Place (https://bindingofisaacrebirth.fandom.com/wiki/Fire_Places), the Oil Lamp is lit and assumes the same fire variation as the Fire Place it made contact with.
 
 ![Oil Lamp](/gifs/oil_lamp.gif "Oil Lamp")

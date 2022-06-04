@@ -1,0 +1,17 @@
+{
+  "name": "The Coffee Bean",
+  "type": "passive",
+  "portrait": "/resources/gfx/items/collectibles/coffee_bean.png",
+  "quote": "Speed Up",
+  "pools": [
+    "Beggar",
+    "Treasure Room"
+  ],
+  "quality": 0,
+  "effects": [
+    "Grants +0.25 speed.",
+    "When taking damage, Isaac poops.",
+    "Icaac has a 10% change to poop a Corny Poo."
+  ],
+  "gif": "/gifs/coffee_bean.gif"
+}

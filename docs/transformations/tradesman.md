@@ -1,8 +1,8 @@
-#### **TRADESMAN**
+﻿#### **TRADESMAN**
 
 > "Butcher, Baker, Candlestick Maker"
 
-Collect all three of the tradesman aprons to become the "Trademan".
+Collect all three of the tradesman aprons to become the "Tradesman".
 
 **Effects**
 - Grants flight.

@@ -1,11 +1,11 @@
-#### **WHISTLE**
+﻿#### **WHISTLE**
 ![Whistle](/resources/gfx/items/collectibles/whistle.png "Whistle")
 
 > "Rock you like a Whirlwind"
 
 **Recharge Time**
 
-4 Rooms
+3 rooms
 
 **Item Pool**
 

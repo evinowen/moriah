@@ -43,8 +43,8 @@ Treasure Room
 
 **Effects**
 - Enrolls Isaac in the Baking trade, as Isaac recovers health he gains experience with Baking.
-  - Isaac is able to improve his skill and achieve Journeyman, Master, and Grandmaster status with this trade.
-  - Higher skill levels increase the rate duration and magnitude of the Tears bonus granted by the apron.
+- Isaac is able to improve his skill and achieve Journeyman, Master, and Grandmaster status with this trade.
+- Higher skill levels increase the rate duration and magnitude of the Tears bonus granted by the apron.
 - The Baking trade grants a bonus to Isaac's Tears, ranging from +0.5 Tears to +1.5 Tears, depending on how much health has been recovered recently.
 
 ![Baker's Apron](/gifs/bakers_apron.gif "Baker's Apron")
@@ -87,8 +87,8 @@ Treasure Room
 
 **Effects**
 - Enrolls Isaac in the Butchering trade, as Isaac deals damage he gains experience with Butchering.
-  - Isaac is able to improve his skill and achieve Journeyman, Master, and Grandmaster status with this trade.
-  - Higher skill levels increase the rate duration and strength of the Damage bonus granted by the apron.
+- Isaac is able to improve his skill and achieve Journeyman, Master, and Grandmaster status with this trade.
+- Higher skill levels increase the rate duration and strength of the Damage bonus granted by the apron.
 - The Butchering trade grants a bonus to Isaac's Damage, ranging from +0.5 Damage to +1.5 Damage, depending on how much damage has been dealt recently.
 
 ![Butcher's Apron](/gifs/butchers_apron.gif "Butcher's Apron")
@@ -106,12 +106,12 @@ Treasure Room
 
 **Quality**
 
-★★★☆☆
+★★★★☆
 
 **Effects**
 - Enrolls Isaac in the Chandlering trade, as Isaac recharges his active item he gains experience with Chandlering.
-  - Isaac is able to improve his skill and achieve Journeyman, Master, and Grandmaster status with this trade.
-  - Higher skill levels increase the rate duration and magnitude of the Shot Speed bonus granted by the apron.
+- Isaac is able to improve his skill and achieve Journeyman, Master, and Grandmaster status with this trade.
+- Higher skill levels increase the rate duration and magnitude of the Shot Speed bonus granted by the apron.
 - The Chandlering trade grants a bonus to Isaac's Shot Speed, ranging from +0.5 Shot Speed to +1.5 Shot Speed, depending on how much charge has been grained recently.
 
 ![Chandler's Apron](/gifs/chandlers_apron.gif "Chandler's Apron")
@@ -135,7 +135,7 @@ Treasure Room
 **Effects**
 - Grants +0.25 speed.
 - When taking damage, Isaac poops.
-  - Icaac has a 10% change to poop a Corny Poo.
+- Icaac has a 10% change to poop a Corny Poo.
 
 ![The Coffee Bean](/gifs/coffee_bean.gif "The Coffee Bean")
 
@@ -143,6 +143,10 @@ Treasure Room
 ![Eggs](/resources/gfx/items/collectibles/eggs.png "Eggs")
 
 > "6-Pack!"
+
+**Recharge Time**
+
+90 seconds
 
 **Item Pool**
 
@@ -158,9 +162,9 @@ Treasure Room
 **Effects**
 - Upon use when the Egg Carton has Eggs, Isaac holds the Eggs and can reuse the item to put them away again.
 - While holding the Egg Carton, Isaac can fire an Egg using regular tear controls.
-  - Eggs have Knockback and Bait, which will mark the Enemy it hits.
-  - Throwing an Egg will remove one egg from the Egg Carton.
-    - When all six Eggs have been thrown, Isaac will be left with an empty Egg Carton.
+- Eggs have Knockback and Bait, which will mark the Enemy it hits.
+- Throwing an Egg will remove one egg from the Egg Carton.
+- When all six Eggs have been thrown, Isaac will be left with an empty Egg Carton.
 - Upon use when the Egg Carton is empty, Isaac will eat the Egg Carton and recover one red heart.
 
 ![Eggs](/gifs/eggs.gif "Eggs")
@@ -181,9 +185,9 @@ Secret Room
 ★★★☆☆
 
 **Effects**
-- Player wears Fishbowl on their head, grants flight.
-- Tears and Projectiles bounce off Fishbowl, causing no damage to the wearer.
-- The wearer of the Fishbowl is unable to fire tears, as they are also blocked by the Fishbowl.
+- Isaac wears Fishbowl on their head, grants flight.
+- Tears and Projectiles bounce off Fishbowl, causing no damage to Isaac.
+- While wearing the Fishbowl, Isaac is unable to fire tears, as they are also blocked by the Fishbowl.
 
 ![Fishbowl](/gifs/fishbowl.gif "Fishbowl")
 
@@ -191,6 +195,10 @@ Secret Room
 ![Helium](/resources/gfx/items/collectibles/helium.png "Helium")
 
 > "I be a wee little Leprechaun!"
+
+**Recharge Time**
+
+360 seconds
 
 **Item Pool**
 
@@ -213,6 +221,10 @@ Treasure Room
 ![Hymnal](/resources/gfx/items/collectibles/hymnal.png "Hymnal")
 
 > "Bored again Christian"
+
+**Recharge Time**
+
+6 rooms
 
 **Item Pool**
 
@@ -237,7 +249,7 @@ Library
 
 **Recharge Time**
 
-8 Rooms
+8 rooms
 
 **Item Pool**
 
@@ -273,8 +285,8 @@ Secret Room
 
 **Effects**
 - Spawns a floating Oil Lamp familiar that can be fired towards enemies as a projectile.
-  - Oil Lamp is fired directly from where it is located in the chain of familiars behind Isaac, similar to [Bob's Brain](https://bindingofisaacrebirth.fandom.com/wiki/Bob%27s_Brain).
-- If an Oil Lamp makes contact with a [Fire Place](https://bindingofisaacrebirth.fandom.com/wiki/Fire_Places), the Oil Lamp is lit and assumes the same fire variation as the Fire Place it made contact with.
+- Oil Lamp is fired directly from where it is located in the chain of familiars behind Isaac, similar to Bob's Brain. (https://bindingofisaacrebirth.fandom.com/wiki/Bob%27s_Brain)
+- If an Oil Lamp makes contact with a Fire Place (https://bindingofisaacrebirth.fandom.com/wiki/Fire_Places), the Oil Lamp is lit and assumes the same fire variation as the Fire Place it made contact with.
 
 ![Oil Lamp](/gifs/oil_lamp.gif "Oil Lamp")
 
@@ -296,8 +308,8 @@ Treasure Room
 **Effects**
 - Spawns a potted Plant familiar, which in its initial stage has not sprouted.
 - The potted Plant will absorb enemy projectiles when they collide with the potted plant.
-  - After the Plant absorbs five projectiles, it will sprout.
-  - After the Plant absorbs ten projectiles, it will become fully grown.
+- After the Plant absorbs five projectiles, it will sprout.
+- After the Plant absorbs ten projectiles, it will become fully grown.
 
 ![Plant](/gifs/plant.gif "Plant")
 
@@ -308,7 +320,7 @@ Treasure Room
 
 **Recharge Time**
 
-4 Rooms
+3 rooms
 
 **Item Pool**
 
@@ -365,9 +377,8 @@ https://bindingofisaacrebirth.fandom.com/wiki/Cards_and_Runes
 
 **Effects**
 - Exchanges the value of the pickups on the floor of the room for damage dealt to the enemies within it.
-  - Every pickup on the floor is exchanged for 5 damage for each cent of value.
-  - Pickups are valued based on the same rules as the Shop:
-    https://bindingofisaacrebirth.fandom.com/wiki/Shop
+- Every pickup on the floor is exchanged for 5 damage for each cent of value.
+- Pickups are valued based on the same rules as the Shop (https://bindingofisaacrebirth.fandom.com/wiki/Shop)
 - If held, the Old Maid will provide important reminders as Isaac moves between rooms.
 
 ![Old Maid](/gifs/old_maid.gif "Old Maid")
@@ -381,7 +392,7 @@ https://bindingofisaacrebirth.fandom.com/wiki/Transformations
 
 > "Butcher, Baker, Candlestick Maker"
 
-Collect all three of the tradesman aprons to become the "Trademan".
+Collect all three of the tradesman aprons to become the "Tradesman".
 
 **Effects**
 - Grants flight.

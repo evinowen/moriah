@@ -1,4 +1,4 @@
-#### **OVEN MITT**
+﻿#### **OVEN MITT**
 ![Oven Mitt](/resources/gfx/items/trinkets/oven_mitt.png "Oven Mitt")
 
 > "Play with fire"

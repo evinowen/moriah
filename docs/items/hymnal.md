@@ -1,7 +1,11 @@
-#### **HYMNAL**
+﻿#### **HYMNAL**
 ![Hymnal](/resources/gfx/items/collectibles/hymnal.png "Hymnal")
 
 > "Bored again Christian"
+
+**Recharge Time**
+
+6 rooms
 
 **Item Pool**
 

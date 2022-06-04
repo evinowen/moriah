@@ -1,11 +1,11 @@
-#### **LUNCHBOX**
+﻿#### **LUNCHBOX**
 ![Lunchbox](/resources/gfx/items/collectibles/lunchbox.png "Lunchbox")
 
 > "Stay Fresh!™"
 
 **Recharge Time**
 
-8 Rooms
+8 rooms
 
 **Item Pool**
 

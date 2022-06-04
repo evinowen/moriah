@@ -1,0 +1,11 @@
+{
+  "name": "Tissues",
+  "type": "trinket",
+  "portrait": "/resources/gfx/items/trinkets/tissues.png",
+  "quote": "Dry your tears",
+  "effects": [
+    "While held, Isaac is unable to fire tears, and will instead occasionally drop tissues.",
+    "If Isaac is in close proximity to enemy creep while holding Tissues, the enemy creep will be removed."
+  ],
+  "gif": "/gifs/tissues.gif"
+}

@@ -1,0 +1,10 @@
+{
+  "name": "Oven Mitt",
+  "type": "trinket",
+  "portrait": "/resources/gfx/items/trinkets/oven_mitt.png",
+  "quote": "Play with fire",
+  "effects": [
+    "While holding an Oven Mitt, Isaac is able to walk through fire without being damaged."
+  ],
+  "gif": "/gifs/oven_mitt.gif"
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Fishbowl",
+  "type": "passive",
+  "portrait": "/resources/gfx/items/collectibles/fishbowl.png",
+  "quote": "blub blub blub",
+  "pools": [
+    "Secret Room"
+  ],
+  "quality": 3,
+  "effects": [
+    "Isaac wears Fishbowl on their head, grants flight.",
+    "Tears and Projectiles bounce off Fishbowl, causing no damage to Isaac.",
+    "While wearing the Fishbowl, Isaac is unable to fire tears, as they are also blocked by the Fishbowl."
+  ],
+  "gif": "/gifs/fishbowl.gif"
+}

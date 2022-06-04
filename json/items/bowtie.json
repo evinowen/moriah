@@ -1,0 +1,15 @@
+{
+  "name": "Bow Tie",
+  "type": "passive",
+  "portrait": "/resources/gfx/items/collectibles/bowtie.png",
+  "quote": "HP up + you feel charming",
+  "pools": [
+    "Treasure Room"
+  ],
+  "quality": 2,
+  "effects": [
+    "Adds one Red Heart Container.",
+    "Adds a 10% chance to shoot a Charm tear."
+  ],
+  "gif": "/gifs/bowtie.gif"
+}
